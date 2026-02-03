@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>UTS E'STORE</title>
+        <style>
+            * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f2f2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .principale {
+            background-color: white;
+            padding: 40px 25px;
+            color: #01189bff;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #9b0101ff;
+            padding: 25px;
+            font-weight: 800;
+            font-size: 2em;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .suppression {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 30px;
+        }
+
+        button {
+            border: none;
+            background-color: #9b0101ff;
+            padding: 12px 10px;
+            border-radius: 15px;
+            color: white;
+            font-weight: 800;
+            transition: ease all 0.5s;
+        }
+
+        button:hover {
+            background-color: white;
+            color: #9b0101ff;
+            border: 1px solid #9b0101ff;
+        }
+
+        a {
+            text-decoration: none;
+            background-color: #0eb950ff;
+            color: white;
+            border-radius: 15px;
+            font-weight: 800;
+            transition: ease all 0.5s;
+            padding: 12px 50px;
+        }
+
+        a:hover {
+            background-color: white;
+            color: #0eb950ff;
+            border: 1px solid #0eb950ff;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="principale">
+            <h1>Supprimer le produit</h1>
+            <p>Êtes-vous sûr de vouloir supprimer "{{ product.designation }}" ?</p>
+            <form method="post">
+                {% csrf_token %}
+                <div class="suppression">
+                    <button type="submit">Confirmer la suppression</button>
+                    <a href="{% url 'produits' %}">Annuler</a>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

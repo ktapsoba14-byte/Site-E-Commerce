@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>UTS E'STORE || Détail</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .principale {
+            background-color: #f2f2f2ff;
+            padding: 35px 15px;
+            border: 2px solid #01189bff;
+            border-radius: 15px;
+        }
+
+        .principale h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #01189bff;
+            padding: 35px;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .container {
+            display: flex;
+            gap: 15px;
+        }
+
+        .produit {
+            padding: 10px;
+            background-color: #01189bff;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            border-radius: 15px;
+        }
+
+        .produits {
+            display: flex;
+            border: 3px solid blue;
+            background-color: white;
+            border-radius: 15px;
+            display: flex;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .produits:hover {
+            transform: translateY(-8px);
+        }
+
+        .img img{
+            padding: 10px 15px;
+            border-radius: 15px;
+        }
+
+        .text{
+            margin-top: 25px;
+        }
+
+        .text h2 {
+            text-align: center;
+            color: #01189bff;
+            text-decoration: underline;
+            margin-bottom: 10px;
+        }
+
+        .text p {
+            font-weight: 700;
+        }
+
+        .text span {
+            color: #9b0101ff;
+        }
+
+        .payement {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            padding: 150px 19px;
+            border: 1px solid #01189bff;
+            border-radius: 15px;
+            gap: 15px;
+        }
+
+        .payement h3 {
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 1em;
+        }
+
+        .payement span {
+            color: #9b0101ff;
+        }
+
+        .lien1 {
+            background-color: #01189bff;
+            text-decoration: none;
+            border-radius: 15px;
+            padding: 10px 12px;
+            color: white;
+            text-align: center;
+            font-weight: 700;
+            overflow: hidden;
+            transition: ease all 0.5s;
+        }
+
+        .lien1:hover {
+            background-color: white;
+            color: #01189bff;
+            border: 1px solid #01189bff;
+        }
+
+        .lien2 {
+            background-color: #f2f2f2ff;
+            text-decoration: none;
+            border-radius: 15px;
+            padding: 10px 12px;
+            text-align: center;
+            font-weight: 700;
+            color: #9b0101ff;
+            border: 1px solid #9b0101ff;
+            transition: ease all 0.5s;
+        }
+
+        .lien2:hover {
+            background-color: #9b0101ff;
+            color: white;
+        }
+
+        .lien3 {
+            text-align: center;
+            text-decoration: none;
+            font-weight: 700;
+            transition: ease all 0.5s;
+            color: #01189bff;
+        }
+
+        .lien3:hover {
+            text-decoration: underline;
+        }
+
+        .vide {
+            text-align: center;
+        }
+
+        .vide p{
+            color: #9b0101ff;
+            text-align: center;
+            font-size: 1.7em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .vide a {
+            text-decoration: none;
+            font-weight: 700;
+            transition: ease all 0.5s;
+            color: #01189bff;
+            margin-top: 15px;
+        }
+
+        .vide a:hover {
+            text-decoration: underline;
+        }
+
+        .ouf {
+            display: flex;
+            gap: 15px;
+            padding: 10px;
+            background-color: #01189bff;
+            border-radius: 15px;
+        }
+
+        .avantage {
+            background: #fff5f5;
+            border: 2px dashed #9b0101;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .avantage h4 {
+            color: #9b0101;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .ajout {
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .ajouter {
+            color: #27ae60;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .fidele {
+            background: #fff5f5;
+            border: 2px dashed #27ae60;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .felicitation {
+            text-align: center;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .fidele p {
+            font-size: 0.9rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="principale">
+        {% block content %}
+        <h1>Votre Panier</h1>
+        <div class="container">
+            {% if order and order.items.all %}
+            <div  class="produit">
+                {% if user.est_fidele%}
+                <div class="fidele">
+                    <h2 class="felicitation">🎉 Félicitation !!!</h2>
+                    <p>Vous obtenez <strong>5%</strong> de reduction en tant que client fidèle.</p>
+                </div>
+                {% endif%}
+                <div class="ouf">
+                    <div>
+                        {% for item in order.items.all %}
+                        <div  class="produits">
+                            <div class="img">
+                                {% if item.produits.image %}
+                                    <img src="{{ item.produits.image.url }}" alt="{{ item.produits.designation }}" style="max-width : 150px;">
+                                {% endif %}
+                            </div>
+                            <div class="text">
+                                <h2>{{ item.produits.designation }}</h2>
+                                <p>Quantité: <span>{{ item.quantite }}</span></p>
+                                <p>Prix unitaire: <span>{{ item.produits.prix_vente_actuel }} F CFA</span></p>
+                                <p>Prix total: <span>{{ item.get_total_ligne }} F CFA</span></p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="payement">
+                        <h3>Total a régler: <span>{{ order.montant_total }} F CFA</span></h3>
+                        <a href="{% url 'payment' %}" class="lien1">
+                            Effectuer le payement
+                        </a>
+                        <a href="{% url 'supression_cart' %}" class="lien2">
+                            Vider le panier complet
+                        </a>
+                        <a href="{% url 'index' %}?view_as_customer=1" class="lien3">Retour à la boutique</a>
+                    </div>
+                </div>
+                <div class="avantage">
+                    <h4 >🎁 Offre Spéciale Étudiant</h4>
+                    {% load custom_filters %}
+                    {% if order.montant_total < 20000 %}
+                        <p class="ajout">Ajoutez encore <strong>{{ 20000|subtract:order.montant_total }} F CFA</strong> pour débloquer 5% de réduction immédiate !</p>
+                    {% else %}
+                        <p class="ajouter">Félicitations ! Vous bénéficiez d'une réduction de 5%.</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% else %}
+                <div class="vide">
+                    <p>Votre panier est vide !</p>
+                    <a href="{% url 'index' %}?view_as_customer=1">Retour à la boutique</a>
+                </div>
+            {% endif %}
+        </div>
+        {% endblock content %}
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoutBtn = document.querySelector('.lien2');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function(e) {
+                    if (!confirm('Voulez-vous vraiment vider votre panier ?')) {
+                        e.preventDefault();
+                    }
+                });
+            }
+
+        });
+
+    </script>
+</body>
+</html>

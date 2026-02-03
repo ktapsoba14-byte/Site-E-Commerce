@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="categorie-filter">
+    <p style="color: white; margin-bottom: 10px; font-weight: bold;">Rechercher par catégorie</p>
+    <div class="container-radio">
+        <div class="radio-item">
+            <input type="radio" name="categorie" value="all" id="all" checked>
+            <label for="all">
+                <img src="{% static 'images/TOUS.png' %}" alt="Tous">
+                <span>Tous</span>
+            </label>
+        </div>
+        {% for code, label in categories %}
+        <div class="radio-item">
+            <input type="radio" name="categorie" value="{{ code }}" id="{{ code }}" required>
+            <label for="{{ code }}">
+                <img src="{% static 'images/' %}{{ code }}.png" alt="{{ label }}">
+                <span>{{ label }}</span>
+            </label>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+    {% if user.is_authenticated %}
+         <div class="recherche">
+            <form action="{% url 'index' %}" method="GET">
+                <input type="text" name="produit" placeholder="Rechercher un article...">
+                <button type="submit" style="display:none;">Rechercher</button>
+            </form>
+        </div>
+    {% endif %}
+{% endif %}
+<div class="container-produits">
+    {% for product in products %}
+        <div class="produit" data-category="{{ product.categorie }}">
+            <div class="produit-image">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.designation }}">
+                {% else %}
+                    <div class="no-image">Image non disponible</div>
+                {% endif %}
+                {% if product.en_solde %}
+                    <span class="badge-solde">SOLDE</span>
+                {% endif %}
+            </div>
+            <div class="produit-info">
+                <h2>{{ product.designation }}</h2>
+                <p class="description">{{ product.description|truncatewords:10 }}</p>
+                <div class="prix-container">
+                    {% if product.en_solde %}
+                    <div class="pr">
+                        <p class="prix-barre"><del>{{ product.prix_vente }} F CFA</del></p>
+                        <p class="prix-actuel">{{ product.prix_vente_actuel }} F CFA</p>
+                    </div>
+                    {% else %}
+                        <p class="prix-actuel">{{ product.prix_vente_actuel }} F CFA</p>
+                    {% endif %}
+                </div>
+                <div class="etoile">
+                    <ul>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </ul>
+                </div>
+                {%if product.quantite_stock == 0 %}
+                    <p class="epuise">Stock épuisé</p>
+                {% else %}
+                    <p class="stock">{{ product.quantite_stock }} unités</p>
+                    <a href="{% url 'detail' product.slug %}" class="btn-voir">Voir le produit</a>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}

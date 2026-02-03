@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>UTS E'STORE - Inscription</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f2f2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            gap: 15px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            width: 100%;
+            max-width: 450px;
+            color: #01189bff;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 3px solid #01189bff;
+        }
+
+        .container h1 {
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            text-decoration: underline;
+        }
+
+        .container a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #01189bff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .container a:hover {
+            color: #9b0101ff;
+            text-decoration: underline;
+        }
+
+        .container p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 5px;
+        }
+
+        .container p strong {
+            color: #9b0101ff;
+            display: block;
+            font-size: 0.8em;
+            text-transform: uppercase;
+        }
+
+        .container p span {
+            color: #01189bff;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+        <div class="container">
+            <h1>Profil</h1><strong></strong>
+            <p><strong>Nom d'utilisateur:</strong>  <span>{{ user.username }}</span></p>
+            <p><strong>Nom complet:</strong>  <span>{{ user.first_name }} {{ user.last_name }}</span></p>
+            <p><strong>Email:</strong>  <span>{{ user.email }}</span></p>
+            <p><strong>Rôle à l'école:</strong>  <span>{{ user.get_role_ecole_display }}</span></p>
+                <p><strong>Statut Membre:</strong>
+                    {% if user.est_membre %}
+                        <span>Membre de l'association</span>
+                    {% else %}
+                        <span>Non membre</span>
+                    {% endif %}
+                </p>
+                <p><strong>Statut Fidélité:</strong>
+                    {% if user.est_fidele %}
+                        <span>Client Fidèle</span>
+                    {% else %}
+                        <span>Standard</span>
+                    {% endif %}
+                </p>
+            <a href="{% url 'index' %}?view_as_customer=1">Retour</a>
+        </div>
+    {% endblock %}
+</body>
+</html>

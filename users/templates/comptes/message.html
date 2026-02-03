@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>UTS E'STORE || Message</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f4f9;
+            color: #333;
+            padding: 40px 20px;
+        }
+
+        .principale {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .titre {
+            border-bottom: 2px solid #01189bff;
+            padding: 20px;
+            background: #fff;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.8em;
+            color: #9b0101ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background-color: #01189bff;
+            color: white;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95rem;
+            vertical-align: middle;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .btn-action {
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .status-read {
+            color: #28a745;
+            background: #eafaf1;
+        }
+
+        .status-unread {
+            color: #dc3545;
+            background: #fdf2f2;
+            font-weight: bold;
+        }
+
+        .lien {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .lien a {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #9b0101ff;
+            padding: 12px 40px;
+            color: white;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .lien a:hover {
+            background-color: #7a0000;
+            transform: translateY(-2px);
+        }
+
+        .td-empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+{% block content %}
+<div class="principale">
+    <div class="titre">
+        <h1><i class="fas fa-inbox"></i> Boîte de réception</h1>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th><i class="fas fa-calendar-alt"></i> Date</th>
+                <th><i class="fas fa-user"></i> Expéditeur</th>
+                <th><i class="fas fa-tag"></i> Objet</th>
+                <th><i class="fas fa-align-left"></i> Aperçu</th>
+                <th><i class="fas fa-cogs"></i> Action</th>
+            </tr>
+       </thead>
+        <tbody>
+            {% for msg in message %}
+                <tr class="{% if not msg.lu %}non-lu{% endif %}">
+                    <td>{{ msg.date_envoi|date:"d/m H:i" }}</td>
+                    <td>{{ msg.nom }}</td>
+                    <td>{{ msg.objet }}</td>
+                    <td><small>{{ msg.message|truncatewords:6 }}</small></td>
+                    <td>
+                        <a href="{% url 'detail_message' msg.pk %}" class="btn-action {% if msg.lu %}status-read{% else %}status-unread{% endif %}">
+                        {% if msg.lu %}
+                            <i class="fas fa-check-double"></i> Lu
+                        {% else %}
+                            <i class="fas fa-envelope-open-text"></i> Lire
+                        {% endif %}
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="5" class="td-empty-state">Aucun message reçu pour le moment.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="lien">
+        <a href="{% url 'Tableau_de_bord' %}"><i class="fas fa-arrow-left"></i> Quitter</a>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

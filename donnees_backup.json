@@ -1,0 +1,1544 @@
+[
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2026-01-01T14:30:30.116Z",
+        "user": 9,
+        "content_type": 11,
+        "object_id": "1",
+        "object_repr": "Message de KABRE Samira  -  preuve de succes",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2026-01-03T14:04:57.495Z",
+        "user": 9,
+        "content_type": 5,
+        "object_id": "26",
+        "object_repr": "commande 26 - test1234 (03/01/2026)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Num\\u00e9ro de t\\u00e9l\\u00e9phone/Carte\", \"Statut du paiement\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2026-01-08T12:18:56.387Z",
+        "user": 9,
+        "content_type": 7,
+        "object_id": "11",
+        "object_repr": "Tshirt - chimie 3",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Slug\", \"Images du produits\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2026-01-08T12:19:24.096Z",
+        "user": 9,
+        "content_type": 7,
+        "object_id": "10",
+        "object_repr": "Tshirt - Chimie 2",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Designation\", \"Slug\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2026-01-08T12:21:09.718Z",
+        "user": 9,
+        "content_type": 7,
+        "object_id": "12",
+        "object_repr": "Tshirt - informatique",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2026-01-08T12:21:50.769Z",
+        "user": 9,
+        "content_type": 7,
+        "object_id": "12",
+        "object_repr": "Tshirt - informatique",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Quantit\\u00e9 en stock\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2026-01-08T12:23:19.552Z",
+        "user": 9,
+        "content_type": 7,
+        "object_id": "13",
+        "object_repr": "Tshirt - Master",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2026-01-08T12:24:36.986Z",
+        "user": 9,
+        "content_type": 7,
+        "object_id": "14",
+        "object_repr": "Tshirt - UST'Store",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2026-01-08T12:25:56.276Z",
+        "user": 9,
+        "content_type": 7,
+        "object_id": "15",
+        "object_repr": "Tshirt - Physique 2",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2026-01-08T12:28:21.867Z",
+        "user": 9,
+        "content_type": 7,
+        "object_id": "16",
+        "object_repr": "Basquet1",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2026-01-08T12:28:31.489Z",
+        "user": 9,
+        "content_type": 7,
+        "object_id": "16",
+        "object_repr": "Basquet1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2026-01-08T12:28:46.996Z",
+        "user": 9,
+        "content_type": 7,
+        "object_id": "17",
+        "object_repr": "Basq",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2026-01-08T12:29:55.922Z",
+        "user": 9,
+        "content_type": 7,
+        "object_id": "17",
+        "object_repr": "Basquet2",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Designation\", \"Slug\", \"Categorie des produits\", \"Description d\\u00e9taill\\u00e9e\", \"Images du produits\", \"Prix d'achat\", \"Prix de vente\", \"Quantit\\u00e9 en stock\", \"Produit en solde\", \"Pourcentage de r\\u00e9duction\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2026-01-08T12:30:04.554Z",
+        "user": 9,
+        "content_type": 7,
+        "object_id": "16",
+        "object_repr": "Basquet1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2026-01-08T12:31:18.671Z",
+        "user": 9,
+        "content_type": 7,
+        "object_id": "18",
+        "object_repr": "Basquet3",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2026-01-08T12:31:27.417Z",
+        "user": 9,
+        "content_type": 7,
+        "object_id": "17",
+        "object_repr": "Basquet2",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description d\\u00e9taill\\u00e9e\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2026-01-08T12:32:11.674Z",
+        "user": 9,
+        "content_type": 7,
+        "object_id": "19",
+        "object_repr": "Basquet4",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2026-01-08T12:34:12.941Z",
+        "user": 9,
+        "content_type": 7,
+        "object_id": "20",
+        "object_repr": "Basquet5",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2026-01-08T14:48:08.900Z",
+        "user": 9,
+        "content_type": 7,
+        "object_id": "22",
+        "object_repr": "Disque",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2026-01-08T14:48:18.817Z",
+        "user": 9,
+        "content_type": 7,
+        "object_id": "21",
+        "object_repr": "Faso Dafani 1",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2026-01-08T15:00:52.888Z",
+        "user": 9,
+        "content_type": 11,
+        "object_id": "5",
+        "object_repr": "Message de KABRE Samira  -  colaboration",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2026-01-08T15:00:58.401Z",
+        "user": 9,
+        "content_type": 11,
+        "object_id": "4",
+        "object_repr": "Message de DAO Cheick  -  Envie de colaborer",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2026-01-08T15:01:03.348Z",
+        "user": 9,
+        "content_type": 11,
+        "object_id": "3",
+        "object_repr": "Message de Konseiga faride  -  colaboration",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2026-01-08T15:01:07.499Z",
+        "user": 9,
+        "content_type": 11,
+        "object_id": "2",
+        "object_repr": "Message de KABRE Samira  -  preuve de succes",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2026-01-08T15:01:11.995Z",
+        "user": 9,
+        "content_type": 11,
+        "object_id": "1",
+        "object_repr": "Message de KABRE Samira  -  preuve de succes",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2026-01-08T19:03:51.788Z",
+        "user": 9,
+        "content_type": 10,
+        "object_id": "17",
+        "object_repr": "Facture FAC-27-260104 (Commande 27)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2026-01-08T19:03:57.410Z",
+        "user": 9,
+        "content_type": 10,
+        "object_id": "16",
+        "object_repr": "Facture FAC-25-260103 (Commande 25)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2026-01-08T19:04:02.293Z",
+        "user": 9,
+        "content_type": 10,
+        "object_id": "15",
+        "object_repr": "Facture FAC-24-260102 (Commande 24)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2026-01-08T19:04:07.383Z",
+        "user": 9,
+        "content_type": 10,
+        "object_id": "14",
+        "object_repr": "Facture FAC-23-260102 (Commande 23)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2026-01-08T19:04:16.351Z",
+        "user": 9,
+        "content_type": 10,
+        "object_id": "13",
+        "object_repr": "Facture FAC-22-260101 (Commande 22)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+        "action_time": "2026-01-08T19:05:07.757Z",
+        "user": 9,
+        "content_type": 10,
+        "object_id": "12",
+        "object_repr": "Facture FAC-20-260101 (Commande 20)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+        "action_time": "2026-01-08T19:08:29.433Z",
+        "user": 9,
+        "content_type": 10,
+        "object_id": "11",
+        "object_repr": "Facture FAC-19-251231 (Commande 19)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+        "action_time": "2026-01-08T19:08:35.500Z",
+        "user": 9,
+        "content_type": 10,
+        "object_id": "10",
+        "object_repr": "Facture FAC-17-251231 (Commande 17)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+        "action_time": "2026-01-08T19:08:40.395Z",
+        "user": 9,
+        "content_type": 10,
+        "object_id": "9",
+        "object_repr": "Facture FAC-14-251229 (Commande 14)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+        "action_time": "2026-01-08T19:08:47.336Z",
+        "user": 9,
+        "content_type": 10,
+        "object_id": "8",
+        "object_repr": "Facture FAC-13-251228 (Commande 13)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+        "action_time": "2026-01-08T19:08:51.656Z",
+        "user": 9,
+        "content_type": 10,
+        "object_id": "7",
+        "object_repr": "Facture FAC-10-251218 (Commande 10)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+        "action_time": "2026-01-08T19:09:31.683Z",
+        "user": 9,
+        "content_type": 5,
+        "object_id": "29",
+        "object_repr": "commande 29 - tapsoba (06/01/2026)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+        "action_time": "2026-01-08T19:09:36.474Z",
+        "user": 9,
+        "content_type": 5,
+        "object_id": "27",
+        "object_repr": "commande 27 - test1234 (04/01/2026)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+        "action_time": "2026-01-08T19:09:56.844Z",
+        "user": 9,
+        "content_type": 5,
+        "object_id": "26",
+        "object_repr": "commande 26 - test1234 (03/01/2026)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+        "action_time": "2026-01-08T19:10:02.297Z",
+        "user": 9,
+        "content_type": 5,
+        "object_id": "25",
+        "object_repr": "commande 25 - test1234 (03/01/2026)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+        "action_time": "2026-01-08T19:10:15.277Z",
+        "user": 9,
+        "content_type": 5,
+        "object_id": "24",
+        "object_repr": "commande 24 - test1234 (02/01/2026)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+        "action_time": "2026-01-08T19:10:21.585Z",
+        "user": 9,
+        "content_type": 5,
+        "object_id": "23",
+        "object_repr": "commande 23 - tapsoba (02/01/2026)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+        "action_time": "2026-01-08T19:10:27.829Z",
+        "user": 9,
+        "content_type": 5,
+        "object_id": "22",
+        "object_repr": "commande 22 - michou (01/01/2026)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+        "action_time": "2026-01-08T19:10:34.259Z",
+        "user": 9,
+        "content_type": 5,
+        "object_id": "20",
+        "object_repr": "commande 20 - test1234 (01/01/2026)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 51,
+    "fields": {
+        "action_time": "2026-01-08T19:10:45.815Z",
+        "user": 9,
+        "content_type": 5,
+        "object_id": "19",
+        "object_repr": "commande 19 - test1234 (31/12/2025)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 52,
+    "fields": {
+        "action_time": "2026-01-08T19:10:51.010Z",
+        "user": 9,
+        "content_type": 5,
+        "object_id": "18",
+        "object_repr": "commande 18 - faride (31/12/2025)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 53,
+    "fields": {
+        "action_time": "2026-01-08T19:10:56.833Z",
+        "user": 9,
+        "content_type": 5,
+        "object_id": "17",
+        "object_repr": "commande 17 - faride (31/12/2025)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 54,
+    "fields": {
+        "action_time": "2026-01-08T19:11:00.980Z",
+        "user": 9,
+        "content_type": 5,
+        "object_id": "13",
+        "object_repr": "commande 13 - test1234 (28/12/2025)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 55,
+    "fields": {
+        "action_time": "2026-01-08T19:12:06.176Z",
+        "user": 9,
+        "content_type": 5,
+        "object_id": "14",
+        "object_repr": "commande 14 - test1234 (29/12/2025)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 56,
+    "fields": {
+        "action_time": "2026-01-08T19:12:10.267Z",
+        "user": 9,
+        "content_type": 5,
+        "object_id": "10",
+        "object_repr": "commande 10 - faride (18/12/2025)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "7po6kutycybzohz94svjbx9v4kh0brcw",
+    "fields": {
+        "session_data": ".eJxVjLEOwjAMRP8lM4rSlNoOIzvfUNlxRAookZp2Qvw7rdQBxrv37t5m5HXJ49rSPE5qLsab028nHJ-p7EAfXO7VxlqWeRK7K_agzd6qptf1cP8OMre8rQfFpBi475hDdBhgICHYghegHhhBguvO2kURAEFET4Q9ATr1YTCfL9qbNwU:1vWAZV:g3qzj69BrRigK29eKX18jL-h22DRL9eEmEofGywu1gg",
+        "expire_date": "2026-01-01T09:45:21.216Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "f40thoy68v0v5k3qkvukindce1034p7a",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGln-rdehpOcM1tre4ABypDipEHeHSCmgfTPzXiLStta4dV7iVMRZDOL0uyXKD247KHdqt1nmua3LlOSuyIN2eZ0LPy-H-3dQqddv7dIYCqTsrXWoVGEH2hMDaM0ayAR0FtGaYA1nyM5Yp7LS6AFGKDiI9wfF7TaE:1vflvH:AZ75nzQqUOzcnAOYRrsOKpx6Ck6iLSsqa9Ps9kLIeR4",
+        "expire_date": "2026-01-27T21:27:31.678Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "okskryo0wv5ae0jl35broaup2h9ryjkw",
+    "fields": {
+        "session_data": ".eJxVjDkOwjAUBe_iGlmx_WUjSnrOEP0VB5AjZaki7g6RUkD7ZuZtrsd1qf0669QP4i4uuNPvRshPbTuQB7b76HlsyzSQ3xV_0NnfRtHX9XD_DirO9VuTCacuclbg3BU8izFoUtRIOZiaBggCJaOmgl0kMS1ARqUwIIh7fwAhyTmj:1vXcao:G_hkiozy_kCgam4vu_VqzaUWt-XOCwMbN-VcrLWU8VI",
+        "expire_date": "2026-01-05T09:52:42.932Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "pbpog2ckte1gna6rwfn62p4yfsghzjoi",
+    "fields": {
+        "session_data": ".eJxVjDkOwjAUBe_iGlmx_WUjSnrOEP0VB5AjZaki7g6RUkD7ZuZtrsd1qf0669QP4i4uuNPvRshPbTuQB7b76HlsyzSQ3xV_0NnfRtHX9XD_DirO9VuTCacuclbg3BU8izFoUtRIOZiaBggCJaOmgl0kMS1ARqUwIIh7fwAhyTmj:1vXF4q:2Jh-FCJG27JQab3KM5BVje0abZr1iuuieR4e6121rfw",
+        "expire_date": "2026-01-04T08:46:08.910Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "qdzvx1uy9640fmhe1tg4mmnuwkoo3unr",
+    "fields": {
+        "session_data": ".eJxVjDkOwjAUBe_iGllesOVQ0nMG62_GAeRIcVJF3B0ipYD2zczbVIZ1qXntMueR1UUN6vS7IdBT2g74Ae0-aZraMo-od0UftOvbxPK6Hu7fQYVev3UCjmgTGYclEJKDCDAInL3nYFmieF-Ig0mC1jnvwdhAsZQUU0EM6v0BErA44g:1vc2Am:RnhXmN92U6dKHclDVc3HYvHCz3PBF38C_5q4kKyxfus",
+        "expire_date": "2026-01-17T14:00:04.015Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "u0wfibr5aso0d3dtauyz81xfeg5biauf",
+    "fields": {
+        "session_data": "e30:1vVWps:gBR5m-lDnDIMa4um9PP8WzPFzvkzef-PVaFvdbTodS0",
+        "expire_date": "2025-12-30T15:19:36.791Z"
+    }
+},
+{
+    "model": "users.users",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$Gx2m9XB9OPFQzxxXTwl8xX$0f3cQs8ocLdDMaUTEN5R1aOje3KVVF5Q4tcnaK4/X64=",
+        "last_login": "2026-01-01T14:26:14.841Z",
+        "is_superuser": false,
+        "username": "faride",
+        "first_name": "Faride",
+        "last_name": "Konseiga",
+        "email": "tap@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-16T15:19:36.215Z",
+        "role_ecole": "etudiant",
+        "est_membre": true,
+        "est_fidele": false,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.users",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$eKfvEWHxw636C7JkfiyN4e$eTqxEJ7UeN/uPK+3G7NKSaenAsR19EAQdjm8OldXTF8=",
+        "last_login": "2026-01-13T21:26:11.854Z",
+        "is_superuser": false,
+        "username": "test1234",
+        "first_name": "Kevin",
+        "last_name": "Tapsoba",
+        "email": "tap@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-27T19:51:45.333Z",
+        "role_ecole": "etudiant",
+        "est_membre": false,
+        "est_fidele": true,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.users",
+    "pk": 7,
+    "fields": {
+        "password": "",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "djibrila",
+        "first_name": "Djibrila",
+        "last_name": "DIALLO",
+        "email": "djibi@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-30T19:52:46.095Z",
+        "role_ecole": "etudiant",
+        "est_membre": true,
+        "est_fidele": true,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.users",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$vtI78vIj2tnEFm3AlsBiuT$z9F+GgA7mhzNdQmPa3jcxlQTlbiHvlQVOeVjJmdMYLI=",
+        "last_login": "2025-12-31T22:48:26.972Z",
+        "is_superuser": false,
+        "username": "fatao",
+        "first_name": "Fatao",
+        "last_name": "GUINGANI",
+        "email": "fatao@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-31T22:48:15.650Z",
+        "role_ecole": "personnel",
+        "est_membre": false,
+        "est_fidele": false,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.users",
+    "pk": 9,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$Uom2jY5IzDS9y8GHUBJ4sT$7wHHAdpLIOBkNx4jF/CpHwTNhWkBt8baUMwARcW2faQ=",
+        "last_login": "2026-01-13T21:27:31.675Z",
+        "is_superuser": true,
+        "username": "tapsoba",
+        "first_name": "",
+        "last_name": "",
+        "email": "tap@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-01-01T14:29:39.038Z",
+        "role_ecole": "etudiant",
+        "est_membre": false,
+        "est_fidele": true,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.users",
+    "pk": 10,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$ImSXCcEtvRskQhZDQqcEXq$X9SI1YDWys1uzlFvtFmIt4G4Gu+s2bW4qB5F1Nyif3k=",
+        "last_login": "2026-01-01T18:02:45.104Z",
+        "is_superuser": false,
+        "username": "michou",
+        "first_name": "Micheline",
+        "last_name": "TAPSOBA",
+        "email": "michou@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-01-01T18:02:31.666Z",
+        "role_ecole": "etudiant",
+        "est_membre": false,
+        "est_fidele": false,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.users",
+    "pk": 11,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$EneMbJ6cjHF4FDSmQvmzPN$o92w0pTHCrV5kzILJ3JAyNYqvh5HYnvrUMnA/crpgjg=",
+        "last_login": "2026-01-03T13:09:35.598Z",
+        "is_superuser": false,
+        "username": "tapsob",
+        "first_name": "Kevin",
+        "last_name": "Tapsoba",
+        "email": "ktapsoba14@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-01-03T12:53:21.932Z",
+        "role_ecole": "etudiant",
+        "est_membre": false,
+        "est_fidele": false,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.contactmessage",
+    "pk": 6,
+    "fields": {
+        "nom": "KABRE Samira",
+        "email": "konseiga@gmail.com",
+        "objet": "colaboration",
+        "message": "Envie de colaborer",
+        "date_envoi": "2026-01-08T15:01:42.057Z",
+        "lu": true
+    }
+},
+{
+    "model": "users.contactmessage",
+    "pk": 7,
+    "fields": {
+        "nom": "KABRE Samira",
+        "email": "ktapsoba4@gmail.com",
+        "objet": "colaboration",
+        "message": "Envie de colabore",
+        "date_envoi": "2026-01-08T19:29:56.989Z",
+        "lu": true
+    }
+},
+{
+    "model": "users.contactmessage",
+    "pk": 8,
+    "fields": {
+        "nom": "KABRE Samira",
+        "email": "ktapsoba14@gmail.com",
+        "objet": "colaboration",
+        "message": "COLABORATION",
+        "date_envoi": "2026-01-08T19:39:14.237Z",
+        "lu": true
+    }
+},
+{
+    "model": "users.contactmessage",
+    "pk": 9,
+    "fields": {
+        "nom": "KABRE Samira",
+        "email": "konseia@gmail.com",
+        "objet": "colaboration",
+        "message": "\r\n^ùpmolikujynhe",
+        "date_envoi": "2026-01-08T19:42:28.561Z",
+        "lu": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 10,
+    "fields": {
+        "designation": "Tshirt - Chimie 2",
+        "slug": "tshirt2",
+        "categorie": "TSHIRT",
+        "description": "L2 - Chimie",
+        "image": "products_images/chimie2.png",
+        "prix_achat": "2500.00",
+        "prix_vente": "3000.00",
+        "quantite_stock": 99,
+        "stock_alerte": 10,
+        "en_solde": false,
+        "pourcentage_solde": "0.00"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 11,
+    "fields": {
+        "designation": "Tshirt - chimie 3",
+        "slug": "tshirt3",
+        "categorie": "TSHIRT",
+        "description": "L3 - Chimie",
+        "image": "products_images/Chimie_Licence_3.png",
+        "prix_achat": "2500.00",
+        "prix_vente": "3000.00",
+        "quantite_stock": 41,
+        "stock_alerte": 10,
+        "en_solde": false,
+        "pourcentage_solde": "0.00"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 12,
+    "fields": {
+        "designation": "Tshirt - informatique",
+        "slug": "tshirtinfos",
+        "categorie": "TSHIRT",
+        "description": "L2 -L3 I- nformatique",
+        "image": "products_images/IMG-20251024-WA0012.jpg",
+        "prix_achat": "2500.00",
+        "prix_vente": "3000.00",
+        "quantite_stock": 67,
+        "stock_alerte": 10,
+        "en_solde": false,
+        "pourcentage_solde": "0.00"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 13,
+    "fields": {
+        "designation": "Tshirt - Master",
+        "slug": "tshirtmaster",
+        "categorie": "TSHIRT",
+        "description": "M1 - M2 - Master Chimie",
+        "image": "products_images/chimieMaster.png",
+        "prix_achat": "2800.00",
+        "prix_vente": "3800.00",
+        "quantite_stock": 20,
+        "stock_alerte": 10,
+        "en_solde": false,
+        "pourcentage_solde": "0.00"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 14,
+    "fields": {
+        "designation": "Tshirt - UST'Store",
+        "slug": "tshirtstore",
+        "categorie": "TSHIRT",
+        "description": "Tshirt de l'association",
+        "image": "products_images/Membershirt.png",
+        "prix_achat": "3000.00",
+        "prix_vente": "4500.00",
+        "quantite_stock": 60,
+        "stock_alerte": 10,
+        "en_solde": true,
+        "pourcentage_solde": "10.00"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 15,
+    "fields": {
+        "designation": "Tshirt - Physique 2",
+        "slug": "tshirtp2",
+        "categorie": "TSHIRT",
+        "description": "L2 - Physique",
+        "image": "products_images/physique3.png",
+        "prix_achat": "2500.00",
+        "prix_vente": "3250.00",
+        "quantite_stock": 44,
+        "stock_alerte": 10,
+        "en_solde": true,
+        "pourcentage_solde": "5.50"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 16,
+    "fields": {
+        "designation": "Basquet1",
+        "slug": "basquet1",
+        "categorie": "BASQUET",
+        "description": "AIR - NOIR",
+        "image": "products_images/air_CmQjQup.png",
+        "prix_achat": "5000.00",
+        "prix_vente": "7500.00",
+        "quantite_stock": 20,
+        "stock_alerte": 10,
+        "en_solde": false,
+        "pourcentage_solde": "0.00"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 17,
+    "fields": {
+        "designation": "Basquet2",
+        "slug": "basquet2",
+        "categorie": "BASQUET",
+        "description": "AIR - NIKE - BLEUE",
+        "image": "products_images/air2_hI4yBob.png",
+        "prix_achat": "5000.00",
+        "prix_vente": "8000.00",
+        "quantite_stock": 13,
+        "stock_alerte": 10,
+        "en_solde": true,
+        "pourcentage_solde": "15.00"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 18,
+    "fields": {
+        "designation": "Basquet3",
+        "slug": "basquet3",
+        "categorie": "BASQUET",
+        "description": "AIR - NIKE - BLANC",
+        "image": "products_images/blazer_Lg8SJJm.png",
+        "prix_achat": "6000.00",
+        "prix_vente": "8000.00",
+        "quantite_stock": 21,
+        "stock_alerte": 10,
+        "en_solde": false,
+        "pourcentage_solde": "0.00"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 19,
+    "fields": {
+        "designation": "Basquet4",
+        "slug": "basquet4",
+        "categorie": "BASQUET",
+        "description": "AIR - NIKE - VERT",
+        "image": "products_images/blazer2.png",
+        "prix_achat": "5500.00",
+        "prix_vente": "7000.00",
+        "quantite_stock": 5,
+        "stock_alerte": 10,
+        "en_solde": false,
+        "pourcentage_solde": "0.00"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 20,
+    "fields": {
+        "designation": "Basquet5",
+        "slug": "basquet5",
+        "categorie": "BASQUET",
+        "description": "AIR - JORDAN - BLUE",
+        "image": "products_images/crater.png",
+        "prix_achat": "4500.00",
+        "prix_vente": "6000.00",
+        "quantite_stock": 15,
+        "stock_alerte": 10,
+        "en_solde": false,
+        "pourcentage_solde": "0.00"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 21,
+    "fields": {
+        "designation": "Faso Dafani 1",
+        "slug": "faso-dafani-1",
+        "categorie": "AUTRE",
+        "description": "Elegant en coton",
+        "image": "products_images/IMG-20251227-WA0039.jpg",
+        "prix_achat": "8000.00",
+        "prix_vente": "1000.00",
+        "quantite_stock": 20,
+        "stock_alerte": 10,
+        "en_solde": false,
+        "pourcentage_solde": "0.00"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 22,
+    "fields": {
+        "designation": "Disque",
+        "slug": "disque",
+        "categorie": "AUTRE",
+        "description": "1000 GO",
+        "image": "products_images/disque2.webp",
+        "prix_achat": "15000.00",
+        "prix_vente": "20000.00",
+        "quantite_stock": 20,
+        "stock_alerte": 10,
+        "en_solde": false,
+        "pourcentage_solde": "0.00"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 23,
+    "fields": {
+        "designation": "PC Asus",
+        "slug": "pc-asus",
+        "categorie": "ORDINATEUR",
+        "description": "8GO RAM 500GO ROM",
+        "image": "products_images/G-37758-1-Asus-Vivobook-16-S1600EA-MB002W-1.jpg",
+        "prix_achat": "250000.00",
+        "prix_vente": "300000.00",
+        "quantite_stock": 13,
+        "stock_alerte": 10,
+        "en_solde": false,
+        "pourcentage_solde": "0.00"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 24,
+    "fields": {
+        "designation": "PC HP",
+        "slug": "pc-hp",
+        "categorie": "ORDINATEUR",
+        "description": "core i5 16Go Ram 500Go Rom",
+        "image": "products_images/hp.webp",
+        "prix_achat": "350000.00",
+        "prix_vente": "450000.00",
+        "quantite_stock": 13,
+        "stock_alerte": 10,
+        "en_solde": true,
+        "pourcentage_solde": "15.00"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 25,
+    "fields": {
+        "designation": "PC DELL",
+        "slug": "pc-dell",
+        "categorie": "ORDINATEUR",
+        "description": "core i3 4Go Ram 250Go Rom",
+        "image": "products_images/dell.webp",
+        "prix_achat": "150000.00",
+        "prix_vente": "200000.00",
+        "quantite_stock": 21,
+        "stock_alerte": 10,
+        "en_solde": false,
+        "pourcentage_solde": "15.00"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 26,
+    "fields": {
+        "designation": "Faso Dafani 2",
+        "slug": "faso-dafani-2",
+        "categorie": "AUTRE",
+        "description": "Coton",
+        "image": "products_images/IMG-20251227-WA0043.jpg",
+        "prix_achat": "10000.00",
+        "prix_vente": "2500.00",
+        "quantite_stock": 0,
+        "stock_alerte": 10,
+        "en_solde": false,
+        "pourcentage_solde": "0.00"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 27,
+    "fields": {
+        "designation": "Clef 1",
+        "slug": "clef-1",
+        "categorie": "AUTRE",
+        "description": "32 Go",
+        "image": "products_images/clef1.webp",
+        "prix_achat": "3500.00",
+        "prix_vente": "4500.00",
+        "quantite_stock": 12,
+        "stock_alerte": 10,
+        "en_solde": false,
+        "pourcentage_solde": "0.00"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 28,
+    "fields": {
+        "designation": "Clef 2",
+        "slug": "clef-2",
+        "categorie": "AUTRE",
+        "description": "128 Go",
+        "image": "products_images/clef2.webp",
+        "prix_achat": "5000.00",
+        "prix_vente": "7000.00",
+        "quantite_stock": 14,
+        "stock_alerte": 10,
+        "en_solde": false,
+        "pourcentage_solde": "0.00"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 29,
+    "fields": {
+        "designation": "Souris",
+        "slug": "souris",
+        "categorie": "AUTRE",
+        "description": "Sans Fil Bluetooth",
+        "image": "products_images/souris1.webp",
+        "prix_achat": "1500.00",
+        "prix_vente": "3000.00",
+        "quantite_stock": 30,
+        "stock_alerte": 10,
+        "en_solde": false,
+        "pourcentage_solde": "5.00"
+    }
+},
+{
+    "model": "products.order",
+    "pk": 30,
+    "fields": {
+        "client": 9,
+        "date_vente": "2026-01-09T12:32:37.823Z",
+        "montant_total": "303687.69",
+        "reduction": "15983.56",
+        "moyen_paiement": "ORANGE",
+        "montant_verse": "0.00",
+        "montant_rendu": "0.00",
+        "est_payee": true
+    }
+},
+{
+    "model": "products.order",
+    "pk": 31,
+    "fields": {
+        "client": 9,
+        "date_vente": "2026-01-09T12:34:42.495Z",
+        "montant_total": "3000.00",
+        "reduction": "0.00",
+        "moyen_paiement": "MOOV",
+        "montant_verse": "0.00",
+        "montant_rendu": "0.00",
+        "est_payee": true
+    }
+},
+{
+    "model": "products.order",
+    "pk": 32,
+    "fields": {
+        "client": 9,
+        "date_vente": "2026-01-09T12:43:18.109Z",
+        "montant_total": "3000.00",
+        "reduction": "0.00",
+        "moyen_paiement": "CORIS",
+        "montant_verse": "0.00",
+        "montant_rendu": "0.00",
+        "est_payee": true
+    }
+},
+{
+    "model": "products.order",
+    "pk": 33,
+    "fields": {
+        "client": 9,
+        "date_vente": "2026-01-09T12:45:03.623Z",
+        "montant_total": "29700.00",
+        "reduction": "3300.00",
+        "moyen_paiement": "CARD",
+        "montant_verse": "0.00",
+        "montant_rendu": "0.00",
+        "est_payee": true
+    }
+},
+{
+    "model": "products.order",
+    "pk": 39,
+    "fields": {
+        "client": 6,
+        "date_vente": "2026-01-09T21:06:06.234Z",
+        "montant_total": "272700.00",
+        "reduction": "30300.00",
+        "moyen_paiement": "CARD",
+        "montant_verse": "0.00",
+        "montant_rendu": "0.00",
+        "est_payee": true
+    }
+},
+{
+    "model": "products.order",
+    "pk": 40,
+    "fields": {
+        "client": 6,
+        "date_vente": "2026-01-10T09:52:13.034Z",
+        "montant_total": "8550.00",
+        "reduction": "450.00",
+        "moyen_paiement": "MOOV",
+        "montant_verse": "0.00",
+        "montant_rendu": "0.00",
+        "est_payee": true
+    }
+},
+{
+    "model": "products.order",
+    "pk": 41,
+    "fields": {
+        "client": 6,
+        "date_vente": "2026-01-13T21:24:30.219Z",
+        "montant_total": "14250.00",
+        "reduction": "750.00",
+        "moyen_paiement": "MOOV",
+        "montant_verse": "0.00",
+        "montant_rendu": "0.00",
+        "est_payee": true
+    }
+},
+{
+    "model": "products.order",
+    "pk": 42,
+    "fields": {
+        "client": 6,
+        "date_vente": "2026-01-13T21:26:31.925Z",
+        "montant_total": "33750.00",
+        "reduction": "3750.00",
+        "moyen_paiement": "ORANGE",
+        "montant_verse": "0.00",
+        "montant_rendu": "0.00",
+        "est_payee": true
+    }
+},
+{
+    "model": "products.orderitem",
+    "pk": 52,
+    "fields": {
+        "commande": 30,
+        "produits": 10,
+        "quantite": 1
+    }
+},
+{
+    "model": "products.orderitem",
+    "pk": 53,
+    "fields": {
+        "commande": 30,
+        "produits": 15,
+        "quantite": 1
+    }
+},
+{
+    "model": "products.orderitem",
+    "pk": 54,
+    "fields": {
+        "commande": 30,
+        "produits": 17,
+        "quantite": 2
+    }
+},
+{
+    "model": "products.orderitem",
+    "pk": 55,
+    "fields": {
+        "commande": 30,
+        "produits": 23,
+        "quantite": 1
+    }
+},
+{
+    "model": "products.orderitem",
+    "pk": 56,
+    "fields": {
+        "commande": 31,
+        "produits": 11,
+        "quantite": 1
+    }
+},
+{
+    "model": "products.orderitem",
+    "pk": 57,
+    "fields": {
+        "commande": 32,
+        "produits": 11,
+        "quantite": 1
+    }
+},
+{
+    "model": "products.orderitem",
+    "pk": 58,
+    "fields": {
+        "commande": 33,
+        "produits": 11,
+        "quantite": 1
+    }
+},
+{
+    "model": "products.orderitem",
+    "pk": 69,
+    "fields": {
+        "commande": 39,
+        "produits": 11,
+        "quantite": 1
+    }
+},
+{
+    "model": "products.orderitem",
+    "pk": 70,
+    "fields": {
+        "commande": 39,
+        "produits": 23,
+        "quantite": 1
+    }
+},
+{
+    "model": "products.orderitem",
+    "pk": 71,
+    "fields": {
+        "commande": 40,
+        "produits": 12,
+        "quantite": 3
+    }
+},
+{
+    "model": "products.orderitem",
+    "pk": 72,
+    "fields": {
+        "commande": 41,
+        "produits": 11,
+        "quantite": 5
+    }
+},
+{
+    "model": "products.orderitem",
+    "pk": 73,
+    "fields": {
+        "commande": 42,
+        "produits": 16,
+        "quantite": 5
+    }
+},
+{
+    "model": "products.orderitem",
+    "pk": 74,
+    "fields": {
+        "commande": 33,
+        "produits": 29,
+        "quantite": 10
+    }
+},
+{
+    "model": "products.facture",
+    "pk": 18,
+    "fields": {
+        "commande": 30,
+        "numero_recu": "FAC-30-260109",
+        "moyen_paiement": "ORANGE",
+        "date_emission": "2026-01-09T12:33:19.672Z"
+    }
+},
+{
+    "model": "products.facture",
+    "pk": 19,
+    "fields": {
+        "commande": 31,
+        "numero_recu": "FAC-31-260109",
+        "moyen_paiement": "MOOV",
+        "date_emission": "2026-01-09T12:34:50.978Z"
+    }
+},
+{
+    "model": "products.facture",
+    "pk": 20,
+    "fields": {
+        "commande": 32,
+        "numero_recu": "FAC-32-260109",
+        "moyen_paiement": "CORIS",
+        "date_emission": "2026-01-09T12:43:36.151Z"
+    }
+},
+{
+    "model": "products.facture",
+    "pk": 21,
+    "fields": {
+        "commande": 39,
+        "numero_recu": "FAC-39-260109",
+        "moyen_paiement": "CARD",
+        "date_emission": "2026-01-10T09:34:02.049Z"
+    }
+},
+{
+    "model": "products.facture",
+    "pk": 22,
+    "fields": {
+        "commande": 40,
+        "numero_recu": "FAC-40-260110",
+        "moyen_paiement": "MOOV",
+        "date_emission": "2026-01-10T09:55:17.554Z"
+    }
+},
+{
+    "model": "products.facture",
+    "pk": 23,
+    "fields": {
+        "commande": 41,
+        "numero_recu": "FAC-41-260113",
+        "moyen_paiement": "MOOV",
+        "date_emission": "2026-01-13T21:24:40.485Z"
+    }
+},
+{
+    "model": "products.facture",
+    "pk": 24,
+    "fields": {
+        "commande": 42,
+        "numero_recu": "FAC-42-260113",
+        "moyen_paiement": "ORANGE",
+        "date_emission": "2026-01-13T21:26:44.221Z"
+    }
+},
+{
+    "model": "products.facture",
+    "pk": 25,
+    "fields": {
+        "commande": 33,
+        "numero_recu": "FAC-33-260109",
+        "moyen_paiement": "CARD",
+        "date_emission": "2026-01-13T21:28:52.451Z"
+    }
+}
+]

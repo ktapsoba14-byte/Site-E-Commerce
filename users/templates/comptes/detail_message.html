@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détail du message</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #9b0101ff;
+            padding: 50px 20px;
+            line-height: 1.6;
+        }
+
+        .principale {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            border-left: 5px solid #9b0101ff;
+            padding-left: 15px;
+            text-align: left;
+        }
+
+        .info-group {
+            text-align: left;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .info-item {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .info-item strong {
+            color: #888;
+            font-weight: 500;
+            display: inline-block;
+            width: 70px;
+        }
+
+        .message-content {
+            background: #fdfdfd;
+            border: 1px solid #f0f0f0;
+            padding: 25px;
+            border-radius: 12px;
+            color: #444;
+            font-size: 1.1em;
+            text-align: left;
+            min-height: 150px;
+            margin-bottom: 30px;
+            white-space: pre-wrap;
+        }
+
+        .lien {
+            text-align: center;
+        }
+
+        .btn-retour {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background-color: #9b0101ff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn-retour:hover {
+            background-color: white;
+            border: 1px solid #9b0101ff;
+            color: #9b0101ff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(231, 76, 60, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="principale">
+        <h1>{{ message.objet }}</h1>
+        <div class="info-group">
+            <p class="info-item"><strong>De :</strong> {{ message.nom }} ({{ message.email }})</p>
+            <p class="info-item"><strong>Date :</strong> {{ message.date_envoi }}</p>
+        </div>
+        <div class="message-content">
+            {{ message.message }}
+        </div>
+        <div class="lien">
+            <a href="{% url 'message' %}" class="btn-retour">← Retour à la liste</a>
+        </div>
+    </div>
+</body>
+</html>

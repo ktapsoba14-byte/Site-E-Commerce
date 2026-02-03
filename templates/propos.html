@@ -1,0 +1,412 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>À Propos | UTS'STORE</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 8px solid #01189bff;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #01189bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        h1, h2 {
+            color: #01189bff;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            border-bottom: 3px solid #9b0101ff;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin-top: 40px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: "";
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #9b0101ff;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .date {
+            color: #9b0101ff;
+            font-weight: bold;
+        }
+
+        .valeur-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .value {
+            background: #f1f3f9;
+            padding: 20px;
+            border-radius: 10px;
+            border-bottom: 4px solid #01189bff;
+        }
+
+        .value strong {
+            color: #01189bff;
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .mission {
+            background: #01189bff;
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .mission h1 {
+            color: white;
+            border-bottom-color: #9b0101ff;
+        }
+
+        .equipe-cart {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        .membre-associer {
+            display: flex;
+            gap: 30px;
+
+        }
+
+        .membre {
+            text-align: center;
+            background-color: #d1d1d1;
+            padding: 20px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .membre:hover {
+            transform: translateY(-5px);
+        }
+
+        .avatar {
+            margin: 0 auto 15px;
+            border: 3px solid #01189bff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: #01189bff;
+            overflow: hidden;
+        }
+
+        .chef {
+            width: 200px;
+            height: 400px;
+            margin: 0 auto 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            overflow: hidden;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .membre h3 {
+            font-size: 1.1rem;
+            margin: 5px 0;
+            color: #01189bff;
+        }
+
+        .membre p {
+            font-size: 0.85rem;
+            color: #9b0101ff;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0;
+            text-align: center;
+        }
+
+        .mission p {
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        footer {
+            background-color: #01189bff;
+            color: white;
+            padding: 40px 20px 20px;
+            margin-top: 50px;
+            border-top: 5px solid #9b0101ff;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            color: white;
+            border-bottom: 2px solid #9b0101ff;
+            display: inline-block;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p, .footer-section li {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #d1d1d1;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #d1d1d1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            background: white;
+            color: #01189bff;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1);
+            background: #9b0101ff;
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="{% url 'index' %}" class="back-link">← Retour à la boutique</a>
+        
+        <section class="presentation">
+            <h1>Bienvenue sur UTS'STORE</h1>
+            <p>Fondée en <span class="date">2025</span>, <strong>UTS'STORE</strong> est une plateforme de commerce électronique innovante, conçue et administrée par des étudiants passionnés en Informatique de l'UFR Sciences et Techniques (ST).</p>
+            <p>Nous nous spécialisons dans la distribution d'accessoires essentiels au quotidien estudiantin, avec une vision claire : allier modernité technologique et authenticité culturelle.</p>
+        </section>
+
+        <section class="histoire">
+            <h2>Genèse du Projet</h2>
+            <p>L'aventure a débuté dans le cadre académique du cours de <strong>Prototypage en Python</strong>, dispensé par le <strong>Dr KOALA</strong>. Ce qui n'était au départ qu'un projet d'étude est rapidement devenu une ambition entrepreneuriale concrète.</p>
+            <p>Notre groupe, composé de cinq membres visionnaires, a relevé le défi de concevoir une solution complète sous la direction de <strong>Monsieur DAO</strong>, Chef de Projet et Président de notre association. Ce mois de développement intensif a non seulement donné naissance au site, mais a également scellé les bases de notre organisation.</p>
+        </section>
+
+        <section class="valeurs">
+            <h2>Nos Valeurs Fondamentales</h2>
+            <div class="valeur-list">
+                <div class="value">
+                    <strong>Excellence & Qualité</strong>
+                    Nous sélectionnons rigoureusement nos partenaires et nos produits pour garantir une satisfaction totale à notre communauté.
+                </div>
+                <div class="value">
+                    <strong>Identité & Authenticité</strong>
+                    Nous valorisons le savoir-faire burkinabè en promouvant activement la consommation locale et la culture africaine.
+                </div>
+                <div class="value">
+                    <strong>Innovation Continue</strong>
+                    Inspirés par nos racines, nous utilisons les technologies de pointe (comme Python/Django) pour offrir une expérience utilisateur fluide et sécurisée.
+                </div>
+            </div>
+        </section>
+
+        <section class="valeurs">
+            <h2>Pourquoi nous choisir ?</h2>
+            <div class="valeur-list">
+                <div class="value">
+                    <strong>Accessibilité Locale</strong>
+                    Plus besoin de traverser la ville. Vos articles sont disponibles directement sur ou à proximité du campus.
+                </div>
+                <div class="value">
+                    <strong>Prix Étudiants</strong>
+                    Nous négocions nos tarifs pour qu'ils correspondent au budget d'un étudiant burkinabè.
+                </div>
+                <div class="value">
+                    <strong>Paiement Sécurisé & Flexible</strong>
+                    Orange Money, Moov Money, Coris Bank ou Carte Bancaire... nous acceptons les moyens de paiement que vous utilisez au quotidien.
+                </div>
+            </div>
+        </section>
+
+        <section class="equipe">
+            <h2>L'Équipe Dirigeante</h2>
+            <div class="equipe-cart">
+                <div class="membre">
+                    <div class="avatar">
+                        <div class="chef">
+                            <img src="{% static 'images/' %}Dao.png" alt="Images de Dao">
+                        </div>
+                    </div>
+                    <h3>M. DAO C A Kader</h3>
+                    <p>Chef de Projet & Président de l'association</p>
+                </div>
+                <div class="membre-associer">
+                    <div class="membre">
+                        <div class="avatar">
+                            <img src="{% static 'images/' %}Fato.png" alt="Images de Dao">
+                        </div>
+                        <h3>M. GUINGANI Fatao</h3>
+                    </div>
+
+                    <div class="membre">
+                        <div class="avatar">
+                            <img src="{% static 'images/' %}Faride.png" alt="Images de Dao">
+                        </div>
+                        <h3>M. KONSEIGA Y T Faride</h3>
+                    </div>
+
+                    <div class="membre">
+                        <div class="avatar">
+                            <img src="{% static 'images/' %}Kevin.png" alt="Images de Dao">
+                        </div>
+                        <h3>M. TAPSOBA K G Kévin</h3>
+                    </div>
+
+                    <div class="membre">
+                        <div class="avatar">
+                            <img src="{% static 'images/' %}Daniel.png" alt="Images de Dao">
+                        </div>
+                        <h3>M. NAOLI Daniel</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mission">
+            <h1>Notre Mission</h1>
+            <p>"UTS'STORE n'est pas qu'une simple boutique en ligne. C'est un projet né au cœur de l'Université Thomas Sankara avec une ambition claire : faciliter la vie quotidienne de chaque étudiant. Nous croyons que pour réussir ses études, il faut avoir accès aux meilleurs outils, rapidement et au meilleur prix."</p>
+        </section>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="{% static 'images/' %}Logo.png" alt="Images de Dao" style="width: 150px; height: 150px; border-radius: 50%; ">
+                <p class="serv">Au service des etudiants</p>
+            </div>
+            <div class="footer-section">
+                <h3>UTS'STORE</h3>
+                <p>La boutique officielle des étudiants de l'UTS. Créée par des étudiants, pour des étudiants. Soutenons l'entrepreneuriat local !</p>
+                <div class="social-icons">
+                    <a href="#"><img src="{% static 'images/' %}facebook.png" alt="Images de Dao" style="width: 30px;"></a>
+                    <a href="#"><img src="{% static 'images/' %}twitter.png" alt="Images de Dao" style="width: 30px;"></a>
+                    <a href="#"><img src="{% static 'images/' %}whatsapp.png" alt="Images de Dao" style="width: 30px;"></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul class="footer-links">
+                    <li><a href="{% url 'index' %}">Accueil</a></li>
+                    <li><a href="{% url 'propos' %}">À Propos</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📍 UFR ST, Université Thomas Sankara</p>
+                <p>📞 (+226) 75 33 85 07</p>
+                <p>✉️ support@uts-estore.bf</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2025 UTS'STORE - Projet Académique (Dr KOALA) - Tous droits réservés.
+        </div>
+    </footer>
+</body>
+</html>

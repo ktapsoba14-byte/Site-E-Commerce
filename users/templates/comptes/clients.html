@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>UTS E'STORE</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                font-family: 'Segoe UI', Roboto, sans-serif;
+                box-sizing: border-box;
+                }
+
+                body {
+                    background: #f2f2f2ff;
+                    color: #01189bff;
+                    padding: 40px 20px;
+                }
+
+                .principale {
+                    width: 100%;
+                    margin: 0 auto;
+                    background: white;
+                    border-radius: 12px;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+                }
+
+                h1 {
+                    padding: 20px;
+                    text-align: center;
+                }
+
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-bottom: 20px;
+                }
+
+                thead {
+                    background-color: #7e9dbdff;
+                    color: #01189bff;
+                }
+
+                th {
+                    padding: 15px 10px;
+                    font-size: 0.85rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                    font-weight: 700;
+                    text-align: left;
+                    border-bottom: 2px solid #01189bff;
+                }
+
+                th:nth-child(4), td:nth-child(4),
+                th:nth-child(5), td:nth-child(5),
+                th:nth-child(6), td:nth-child(6),
+                th:nth-child(7), td:nth-child(7),
+                th:nth-child(8), td:nth-child(8) {
+                    text-align: center;
+                }
+
+                td {
+                    padding: 15px;
+                    border-bottom: 1px solid #f1f2f6;
+                    font-size: 0.95rem;
+                }
+
+                tr:hover {
+                    background-color: #10bb2c10;
+                }
+
+                .lien {
+                    display: flex;
+                    gap: 8px;
+                    font-size: 0.95em;
+                    margin-top: 17px;
+                }
+
+                .lien a {
+                    text-decoration: none;
+                    padding: 10px 5px;
+                }
+
+                .lien a:first-child {
+                    background-color: white;
+                    color: #0eb950ff;
+                    border-radius: 15px;
+                    border: 1px solid #0eb950ff;
+                    transition: ease all 0.5s;
+                }
+
+                .lien a:last-child {
+                    background-color: white;
+                    color: #9b0101ff;
+                    border-radius: 15px;
+                    border: 1px solid #9b0101ff;
+                    transition: ease all 0.5s;
+                }
+
+                .lien a:first-child:hover {
+                    background-color: #0eb950ff;
+                    color: white;
+                }
+
+                .lien a:last-child:hover {
+                    background-color: #9b0101ff;
+                    color: white;
+                }
+
+                .princ {
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                .recherche input {
+                    border-radius: 15px;
+                    min-width: 300px;
+                    padding: 15px;
+                    font-weight: 700;
+                    font-size: 1.2em;
+                }
+
+                .recherche {
+                    margin-bottom: 10px;
+                    margin-left: 5px;
+                }
+
+                .recherche button {
+                    border-radius: 15px;
+                    padding: 15px;
+                    border: none;
+                    background-color: #01189bff;
+                    color: white;
+                    font-weight: 700;
+                    font-size: 1.2em;
+                    transition: ease all 0.5s;
+                }
+
+                .recherche button:hover {
+                    background-color: white;
+                    color: #01189bff;
+                    border: 1px solid #01189bff;
+                }
+
+                .ajout {
+                    text-decoration: none;
+                    background: #0eb950ff;
+                    padding: 15px 10px;
+                    border-radius: 15px;
+                    text-decoration: none;
+                    color: white;
+                    margin-bottom: 10px;
+                    margin-right: 5px;
+                    font-weight: 700;
+                    font-size: 1.2em;
+                    transition: ease all 0.5s;
+                }
+
+                .ajout:hover {
+                    background-color: white;
+                    color: #0eb950ff;
+                    border: 1px solid #0eb950ff;
+                }
+
+                .non-trouve {
+                    background-color: #9b0101ff;
+                    color: white;
+                    text-align: center;
+                    padding: 25px 20px;
+                    border-radius: 15px;
+                    margin-left: 90px;
+                    margin-right: 90px;
+                    margin-top: 10px;
+                }
+
+                .reins {
+                    background: #0eb950ff;
+                    padding: 15px;
+                    border-radius: 15px;
+                    text-decoration: none;
+                    color: white;
+                    font-weight: 700;
+                    font-size: 1.2em;
+                    transition: ease all 0.5s;
+                }
+
+                .reins:hover {
+                    background-color: white;
+                    color: #0eb950ff;
+                    border: 1px solid #0eb950ff;
+                }
+
+                .btn-back {
+                    display: inline-block;
+                    min-width: 300px;
+                    padding: 12px 30px;
+                    border-radius: 15px;
+                    text-decoration: none;
+                    background-color: #9b0101ff;
+                    color: white;
+                    font-weight: 600;
+                    transition: all 0.4s ease;
+                    border: 1px solid transparent;
+                }
+
+                .btn-back:hover {
+                    background-color: white;
+                    color: #9b0101ff;
+                    border: 1px solid #9b0101ff;
+                    transform: translateY(-2px);
+                }
+        </style>
+    </head>
+    <body>
+        {% block content %}
+        <div class="principale">
+            <h1>Gestion des Utilisateurs</h1>
+            <div class="princ">
+                <div class="recherche">
+                    <form action="{% url 'clients' %}" method="GET">
+                        <input type="text" name="client" placeholder="Rechercher un client ..." value="{{ query|default:'' }}">
+                        <button type="submit">Rechercher</button>
+                        {% if query %}
+                            <a href="{% url 'clients' %}" class="reins">Réinitialiser</a>
+                        {% endif %}
+                    </form>
+                </div>
+                <a href="{% url 'ajout_client' %}" class="ajout">+ Ajouter un client</a>
+            </div>
+            {% if query and not clients %}
+            <div class="non-trouve">
+                <p>Aucun client ne correspond à votre recherche : <strong>{{ query }}</strong></p>
+            </div>
+                {% endif %}
+                {% if clients %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prenom</th>
+                                <th>Nom Utilisateur</th>
+                                <th>Email</th>
+                                <th>Role Ecole</th>
+                                <th>Membre de l'association</th>
+                                <th>Fidelites</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for client in clients %}
+                                <tr>
+                                    <td>{{ client.last_name }}</td>
+                                    <td>{{ client.first_name }}</td>
+                                    <td>{{ client.username }}</td>
+                                    <td>{{ client.email }}</td>
+                                    <td>{{ client.role_ecole  }}</td>
+                                    <td>{{ client.est_membre|yesno:"Oui,Non" }}</td>
+                                    <td>{{ client.est_fidele|yesno:"Oui,Non" }}</td>
+                                    <td>
+                                        <div class="lien">
+                                            <a href="{% url 'modifier_client' client.username %}">Modifier</a>
+                                            <a href="{% url 'supprimer_client' client.username %}" style="color: red;">Supprimer</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif%}
+                <div style="margin-top: 30px; padding: 0 20px 40px; text-align: center;">
+                    <a href="{% url 'Tableau_de_bord' %}" class="btn-back">
+                        Annuler et retourner au Tableau de Bord
+                    </a>
+                </div>
+        </div>
+        {% endblock content %}
+    </body>
+</html>

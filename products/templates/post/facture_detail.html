@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Facture {{ facture.numero_recu }}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f2f2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .principale {
+            background-color: white;
+            padding: 40px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+       .princ {
+            text-align: center;
+            color: #4f5e5fff;
+            margin-bottom: 20px;
+       }
+
+       .princ h2 {
+            font-weight: 800;
+            font-size: 1.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+       }
+
+        .infos {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-size: 0.9em;
+            border-bottom: 2px dashed #7f8c8d;
+            padding-bottom: 15px;
+        }
+
+        .client1 {
+            color: #3f4a4bff;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .client strong {
+            color: black;
+            text-transform: uppercase;
+            text-align: left;
+        }
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2px 0;
+        }
+
+        table th {
+            text-align: left;
+            border-bottom: 3px solid #3f4a4bff;
+            padding: 10px 0;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        table td {
+            padding: 12px 0;
+            border-bottom: 1px solid #3f4a4bff;
+            font-size: 0.9em;
+        }
+
+        .droite {
+            text-align: right;
+        }
+
+        .total {
+            text-align: right;
+            margin-top: 15px;
+            border-top: 2px solid #2d3436;
+            padding-top: 10px;
+        }
+
+        .total p {
+            margin: 4px 0;
+            font-size: 0.9em;
+            color: #2d3436;
+        }
+
+        .total h3 {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: black;
+            margin-top: 8px;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 30px;
+            font-style: italic;
+            font-size: 0.85em;
+            color: #2d3436;
+        }
+
+        .actions {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-print {
+            background: #01189bff;
+            color: white;
+            transition: ease all 0.5s;
+        }
+
+        .btn-print:hover {
+            background-color: white;
+            border: 2px solid #01189bff;
+            color: #01189bff;
+        }
+
+        .btn-back {
+            background: white;
+            color: #9b0101ff;
+            border: 2px solid #9b0101ff;
+            transition: ease all 0.5s;
+        }
+
+        .btn-back:hover {
+            background: #9b0101ff;
+            color: white;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .invoice-box { box-shadow: none; border: none; max-width: 100%; }
+            .actions { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <strong></strong>
+    <div class="principale">
+        {% block content %}
+        <div class="princ">
+            <h2>UTS E'STORE</h2>
+            <p>Ouagadougou, Burkina Faso</p>
+            <p>Tel: +226 XX XX XX XX</p>
+        </div>
+        <div class="infos">
+            <p>Facture N°: <strong>{{ facture.numero_recu }}</strong></p>
+            <p>Date: {{ facture.date_emission|date:"d/m/Y H:i" }}</p>
+        </div>
+        <div class="client">
+            <div class="client1">
+                <strong>Client:</strong>
+                <span>{{ order.client.get_full_name|default:order.client.username }}</span>
+            </div>
+            <div class="client1">
+                <strong>Moyen:</strong>
+                <span>{{ order.get_moyen_paiement_display }}</span>
+            </div>
+        </div>
+        {% if order.numero_paiement %}<p>N°: {{ order.numero_paiement }}</p>{% endif %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Qté</th>
+                    <th class="droite">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in order.items.all %}
+                <tr>
+                    <td>{{ item.produits.designation }}</td>
+                    <td class="droite">{{ item.quantite }}</td>
+                    <td class="droite">{{ item.get_total_ligne }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="total">
+            {% if order.reduction > 0 %}
+            <p>Réduction: -{{ order.reduction }} FCFA</p>
+            {% endif %}
+            <h3>TOTAL: {{ order.montant_total }} FCFA</h3>
+        </div>
+        <div  class="message">
+            <p>Merci de votre visite !</p>
+            <p>Les marchandises vendues ne sont pas reprises.</p>
+        </div>
+        <div class="actions">
+            <a href="#" class="btn btn-print" onclick="window.print(); return false;">Télécharger facture</a>
+            <a href="{% url 'index' %}?view_as_customer=1" class="btn btn-back">Retour à l'accueil</a>
+        </div>
+        {% endblock content %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>UTS E'STORE || Détail</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Roboto, sans-serif;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: #f2f2f2ff;
+        color: #01189bff;
+        padding: 40px 20px;
+    }
+
+    .principale {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .titre {
+        align-items: center;
+        border-bottom: 2px solid #01189bff;
+        padding-bottom: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 2em;
+        color: #9b0101ff;
+        padding-top: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    thead {
+        background-color: #7e9dbdff;
+        color: #01189bff;
+    }
+
+    th {
+        padding: 15px;
+        border-bottom: 1px solid #01189bff;
+        font-size: 0.95rem;
+    }
+
+    td {
+        padding: 15px;
+        border-bottom: 1px solid #f1f2f6;
+        font-size: 0.95rem;
+    }
+
+    tr:hover {
+        background-color: #10bb2c10;
+    }
+
+    .montant {
+        font-weight: bold;
+        color: #2d3436;
+    }
+
+    .badge {
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        background: #dfe6e9;
+    }
+
+    .btn-view {
+        text-decoration: none;
+        color: white;
+        background: #01189b;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        transition: 0.3s;
+    }
+
+    .btn-view:hover {
+        background: white;
+        color: #01189b;
+        box-shadow: 0 3px 8px rgba(1, 24, 155, 0.3);
+    }
+
+    .btn-back {
+        text-decoration: none;
+        color: white;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        background-color: #9b0101ff;
+        padding: 10px;
+        border-radius: 15px;
+        display: inline-flex;
+        justify-content: center;
+        min-width: 150px;
+        transition: ease all 0.5s;
+    }
+
+    .btn-back:hover {
+        background-color: white;
+        color: #9b0101ff;
+        border: 1px solid #9b0101ff;
+    }
+
+    .empty-msg {
+        text-align: center;
+        padding: 40px;
+        color: #95a5a6;
+        font-style: italic;
+    }
+
+    .retour {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+</style>
+<body>
+
+{% block content %}
+<div class="principale">
+    <div class="titre">
+        <h1>Historique des Achats</h1>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Client</th>
+                <th>Moyen</th>
+                <th>Montant Total</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vente in ventes %}
+            <tr>
+                <td>{{ vente.date_vente | date:"d/m/Y H:i" }}</td>
+                <td>{{ vente.client.username }}</td>
+                <td><span class="badge">{{ vente.get_moyen_paiement_display }}</span></td>
+                <td class="montant">{{ vente.montant_total }} FCFA</td>
+                <td style="text-align: right;">
+                    <a href="{% url 'generer_facture' vente.id %}" class="btn-view">Voir Facture</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="empty-msg">Aucune vente enregistrée.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="retour">
+        <a href="{% url 'index' %}?view_as_customer=1" class="btn-back">Retour</a>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

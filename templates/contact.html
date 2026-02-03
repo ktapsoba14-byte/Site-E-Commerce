@@ -1,0 +1,404 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | UTS E'STORE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            color: #01189bff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #9b0101ff;
+            border-radius: 2px;
+        }
+
+        .infos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .infos-items {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-top: 5px solid #01189bff;
+            transition: all 0.3s ease;
+        }
+
+        .infos-items:hover {
+            transform: translateY(-10px);
+            border-top-color: #9b0101ff;
+        }
+
+        .infos-items h3 {
+            color: #01189bff;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+        }
+
+        .infos-items p {
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .infos-items a {
+            color: #9b0101ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 60px;
+        }
+
+        .contact-image {
+            background: linear-gradient(45deg, #01189bff, #000a4d);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .contact-form-container {
+            padding: 40px;
+        }
+
+        .contact-form-container h2 {
+            color: #01189bff;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #01189bff;
+            outline: none;
+            background: #fcfdff;
+        }
+
+        .submit-btn {
+            background: #01189bff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #9b0101ff;
+        }
+
+        .map-section h2 {
+            text-align: center;
+            color: #01189bff;
+            margin-bottom: 30px;
+        }
+
+        .map-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 4px solid #ffffff;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            color: #01189bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #01189bff;
+            color: white;
+            padding: 40px 20px 20px;
+            margin-top: 50px;
+            border-top: 5px solid #9b0101ff;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            color: white;
+            border-bottom: 2px solid #9b0101ff;
+            display: inline-block;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p, .footer-section li {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #d1d1d1;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #d1d1d1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            background: white;
+            color: #01189bff;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1);
+            background: #9b0101ff;
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        .mess {
+            padding: 15px;
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            border: 1px solid #c3e6cb;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <div class="page-header">
+            <h1 class="title">Contactez-nous</h1>
+        </div>
+        {% if messages %}
+            {% for message in messages %}
+                <div class= "mess">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <section class="infos-grid">
+            <div class="infos-items">
+                <h3>📍 Adresse</h3>
+                <p>Département de Mathématiques</p>
+                <p>UFR ST, Université Thomas SANKARA</p>
+                <p>Ouagadougou, Burkina Faso</p>
+            </div>
+            <div class="infos-items">
+                <h3>📞 Contact Direct</h3>
+                <p>Secrétariat : <a href="tel:+22675338507">(+226) 75 33 85 07</a></p>
+                <p>Email : <a href="mailto:Dao@gmail.com">Dao@gmail.com</a></p>
+            </div>
+            <div class="infos-items">
+                <h3>⏰ Horaires</h3>
+                <p>Lun - Ven : 08h00 - 22h00</p>
+                <p>Samedi : 08h00 - 14h00</p>
+                <p>Dimanche : Fermé</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="contact-image">
+                <h2>Une équipe à votre écoute</h2>
+                <p>Une question sur une commande ? Un problème technique lors du paiement ? Ou peut-être une suggestion de produit que vous aimeriez voir en rayon ? Notre équipe support, composée d'étudiants et de gestionnaires de l'UFR/ST, vous répond en moins de 24h.</p>
+            </div>
+            <div class="contact-form-container">
+                <h2>Envoyez-nous un message</h2>
+                <form method="POST" action="{% url 'contact' %}" id="contactForm">
+                    {% csrf_token %} 
+                    <div class="form-group">
+                        <label>Nom Complet</label>
+                        <input type="text" name="nom" placeholder="Ex: DAO Cheick" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Adresse E-mail</label>
+                        <input type="email" name="email" placeholder="votre@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Objet</label>
+                        <input type="text" name="objet" placeholder="Sujet" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Votre Message</label>
+                        <textarea name="message" rows="4" placeholder="Votre message..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Envoyer le Message</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <h2>Localisation UTS</h2>
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3895.6470896954283!2d-1.3475847240877927!3d12.473207025607525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xe2ec85db70fdbbd%3A0x968f6dd4236ad573!2sUniversit%C3%A9%20Thomas%20Sankara!5e0!3m2!1sfr!2sbf!4v1767977435358!5m2!1sfr!2sbf"
+                width="600"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+        <a href="{% url 'index' %}" class="back-link">← Retour à l'accueil</a>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="{% static 'images/' %}Logo.png" alt="Images de Dao" style="width: 150px; height: 150px; border-radius: 50%; ">
+                <p class="serv">Au service des etudiants</p>
+            </div>
+            <div class="footer-section">
+                <h3>UTS'STORE</h3>
+                <p>La boutique officielle des étudiants de l'UTS. Créée par des étudiants, pour des étudiants. Soutenons l'entrepreneuriat local !</p>
+                <div class="social-icons">
+                    <a href="#"><img src="{% static 'images/' %}facebook.png" alt="Images de Dao" style="width: 30px;"></a>
+                    <a href="#"><img src="{% static 'images/' %}twitter.png" alt="Images de Dao" style="width: 30px;"></a>
+                    <a href="#"><img src="{% static 'images/' %}whatsapp.png" alt="Images de Dao" style="width: 30px;"></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul class="footer-links">
+                    <li><a href="{% url 'index' %}">Accueil</a></li>
+                    <li><a href="{% url 'propos' %}">À Propos</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📍 UFR ST, Université Thomas Sankara</p>
+                <p>📞 (+226) 75 33 85 07</p>
+                <p>✉️ support@uts-estore.bf</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2025 UTS E'STORE - Projet Académique (Dr KOALA) - Tous droits réservés.
+        </div>
+    </footer>
+</body>
+</html>

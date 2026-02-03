@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>UTS E'STORE - Inscription</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f2f2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .principale {
+            background-color: #01189bff;
+            padding: 40px;
+            width: 100%;
+            max-width: 450px;
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .principale h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+
+        .principale p {
+            margin-bottom: 20px;
+        }
+
+        .principale label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .principale input {
+            width: 100%;
+            padding: 14px 15px;
+            border-radius: 10px;
+            border: none;
+            font-size: 1rem;
+            background-color: rgba(255, 255, 255, 0.1); /* Fond semi-transparent pro */
+            color: white;
+            transition: all 0.3s ease;
+            padding-right: 45px !important;
+        }
+
+        .principale input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .principale input:hover,
+        .principale input:focus {
+            outline: none;
+            background-color: white;
+            color: #01189bff;
+            border-color: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px ;
+            border-radius: 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #01189bff;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #01189bff;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .connexion {
+            margin-top: 25px;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        .connexion a{
+            color: #27a5eeff;
+            text-decoration: none;
+            font-weight: bold;
+            font-style: italic;
+            transition: color 0.3s;
+        }
+
+        .oublie {
+            text-align: center;
+        }
+
+        .oublie a{
+            color: #27a5eeff;
+            flex: block;
+            text-decoration: none;
+            font-weight: bold;
+            font-style: italic;
+            transition: color 0.3s;
+        }
+
+        .oublie a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .connexion a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .message {
+            text-align: center;
+            color: #9b0101ff;
+            font-weight: 800;
+        }
+        .input-group {
+            position: relative;
+            width: 100%;
+        }
+    
+        .input-group i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #01189bff;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+    <div class="principale">
+        <h1>Connexion</h1>
+        <form method="POST">
+        {% csrf_token %}
+        <p>
+            <label for="username">Nom d'utilisateur</label>
+            <input id="username" type="text" name="username" placeholder="Votre nom Utilisateur">
+        </p>
+        <p>
+            <label for="password">Mot de passe</label>
+            <div class="input-group">
+                <input id="password" type="password" name="password" placeholder="*********">
+                <i class="fa-solid fa-eye" id="toggleMdp2" style="color: blue;"></i>
+            </div>
+        </p>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} message">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <button type="submit">Connexion</button>
+        </form>
+        <p class="connexion">Pas encore de compte ? <a href="{% url 'inscription' %}">Inscrivez-vous ici</a></p>
+        <div class="oublie">
+            <a href="{% url 'reset_password' %}">Mot de pass oublié ?</a>
+        </div>
+    </div>
+    {% endblock content %}
+    <script>
+        function setupToggle(buttonId, inputId) {
+            const toggleBtn = document.getElementById(buttonId);
+            const inputField = document.getElementById(inputId);
+
+            if(toggleBtn && inputField) {
+                toggleBtn.addEventListener('click', function() {
+                    const type = inputField.getAttribute('type') === 'password' ? 'text' : 'password';
+                    inputField.setAttribute('type', type);
+                    this.classList.toggle('fa-eye');
+                    this.classList.toggle('fa-eye-slash');
+                });
+            }
+        }
+        setupToggle('toggleMdp2', 'password');
+    </script>
+</body>
+</html>

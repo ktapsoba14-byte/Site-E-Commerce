@@ -1,0 +1,305 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>UTS E'STORE || Détail</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            gap: 15px;
+        }
+
+        .principale {
+            background-color: #f2f2f2ff;
+            display: flex;
+            flex-direction: column;
+            padding: 25px 35px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+            border-radius: 15px;
+            border: 2px solid #01189bff;
+            transition: ease all 0.5s;
+        }
+
+        .principale:hover {
+            transform: translateY(-5px);
+        }
+
+        .principale h1 {
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 1.9em;
+            font-weight: bold;
+            text-decoration: underline;
+            color: #01189bff;
+            margin-bottom: 25px;
+        }
+
+        .principale p strong{
+            color: #9b0101ff;
+        }
+
+        .principale h3 {
+            font-weight: 700;
+            color: #01189bff;
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 15px;
+        }
+
+        .total {
+            background-color: #01189bff;
+            color: white;
+            margin: 0 25px ;
+            padding: 10px ;
+            text-align: center;
+            border-radius: 15px;
+        }
+
+        .total p {
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+
+        .container-radio {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .radio {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .radio-item input[type="radio"] {
+            display: none;
+        }
+
+        .radio-item label {
+            display: flex;
+            flex-direction:  column;
+            align-items: center;
+            cursor: pointer;
+            border: 2px solid #01189bff;
+            border-radius: 10px;
+            padding: 10px;
+            background: white;
+            width: 110px;
+            transition: all 0.3s ease;
+        }
+
+        .radio-item label img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            margin-bottom: 5px;
+        }
+
+        .radio-item input[type="radio"]:checked + label {
+            border-color: #9b0101ff;
+            background-color: #f2f2f2ff;
+        }
+
+        .payement {
+            display: none;
+            flex-direction: column;
+            background-color: #01189bff;
+            padding: 50px 40px;
+            border-radius: 15px;
+            width: 100%;
+            min-height: 100px;
+        }
+
+        .method-fields {
+            width: 100%;
+        }
+
+        .payement label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .payement input {
+            width: 100%;
+            padding: 14px 15px;
+            border-radius: 10px;
+            border: none;
+            font-size: 1rem;
+            background-color: rgba(255, 255, 255, 0.1); /* Fond semi-transparent pro */
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .payement input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .payement input:hover,
+        .payement input:focus {
+            outline: none;
+            background-color: white;
+            color: #01189bff;
+            border-color: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px ;
+            border-radius: 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #01189bff;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #01189bff;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .principale a {
+            text-align: right;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #01189bff;
+            font-weight: 700;
+        }
+
+        .principale a:hover {
+            text-decoration: underline;
+            color: #9b0101ff;
+        }
+
+        .vide {
+            text-align: center;
+            color: #9b0101ff;
+            font-size: 1.5em;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+    <div class="principale">
+        <h1>Finaliser votre paiement</h1>
+        {% if order.montant_total  %}
+            <form method="POST">
+                {% csrf_token %}
+                <h3>Choisissez votre mode de paiement :</h3>
+                <div class="total">
+                    <p>Total à payer : {{ order.montant_total }} F CFA</p>
+                </div>
+                <div class="container-radio">
+                    {% for code, label in order.MOYENS_PAIEMENT %}
+                        <div class="radio-item">
+                            <input type="radio" name="moyen_paiement" value="{{ code }}" id="{{ code }}" required>
+                            <label for="{{ code }}">
+                                <img src="{% static 'images/' %}{{ code }}.png" alt="{{ label }}">
+                                <span>{{ label }}</span>
+                            </label>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="payement">
+                    <div id="form-CORIS" class="method-fields" style="display: none;">
+                        <label for="numero">Numéro Coris</label>
+                        <input type="number" name="numero_coris" placeholder="07xxxxxxxx">
+                    </div>
+
+                    <div id="form-ORANGE" class="method-fields" style="display: none;">
+                        <label for="numero">Numéro Orange</label>
+                        <input type="text" name="numero_orange" placeholder="07xxxxxxxx">
+                        <label for="otp">Code OTP</label>
+                        <input type="text" name="otp" placeholder="Code Secret">
+                    </div>
+
+                    <div id="form-MOOV" class="method-fields" style="display: none;">
+                        <label for="numero">Numéro Moov</label>
+                        <input type="text" name="numero_moov" placeholder="01xxxxxxxx">
+                    </div>
+
+                    <div id="form-CARD" class="method-fields" style="display: none;">
+                        <label for="numero">Numéro de Carte</label>
+                        <input type="text" name="card_num" placeholder="XXXX XXXX XXXX XXXX">
+                    </div>
+                </div>
+
+                <button type="submit" style="margin-top: 20px;">
+                    Confirmer et Payer le montant de {{ order.montant_total }} FCFA
+                </button>
+            </form>
+        {% else %}
+            <div class="vide">
+                <p>Votre panier est vide</p>
+            </div>
+        {% endif %}
+        <a href="{% url 'index' %}?view_as_customer=1">Retour à la boutique</a>
+    </div>
+    {% endblock content %}
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const radios = document.querySelectorAll('input[name="moyen_paiement"]');
+        const payementContainer = document.querySelector('.payement');
+        const methodFields = document.querySelectorAll('.method-fields');
+        const montantTotalStr = "{{ order.montant_total }}".replace(/\s/g, '');
+        const montantTotal = parseFloat(montantTotalStr);
+        radios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (payementContainer) {
+                    payementContainer.style.display = 'flex';
+                }
+                methodFields.forEach(field => {
+                    field.style.display = 'none';
+                });
+                const selectedId = "form-" + this.value;
+                const activeForm = document.getElementById(selectedId);
+                if (activeForm) {
+                    activeForm.style.display = 'block';
+                } else {
+                    console.error("Formulaire non trouvé : " + selectedId);
+                }
+            });
+        });
+
+        const inputVerse = document.querySelector('input[name="montant_verse"]');
+        const inputRetour = document.querySelector('input[name="montant_retour"]');
+        if (inputVerse && inputRetour) {
+            inputVerse.addEventListener('input', function() {
+                const verse = parseFloat(this.value) || 0;
+                const rendu = verse - montantTotal;
+
+                if (rendu >= 0) {
+                    inputRetour.value = rendu.toFixed(0);
+                    inputRetour.style.color = "#00ff00";
+                } else {
+                    inputRetour.value = 0;
+                    inputRetour.style.color = "#ff4d4d";
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

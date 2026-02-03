@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>UTS E'STORE - Inscription</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f2f2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .principale {
+            background-color: #01189bff;
+            padding: 30px 40px;
+            width: 100%;
+            max-width: 450px;
+            color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .principale h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+         .principale p {
+            margin-bottom: 20px;
+        }
+
+        .principale label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .principale input {
+            width: 100%;
+            padding: 14px 15px;
+            border-radius: 10px;
+            border: none;
+            font-size: 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .principale input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .principale input:hover,
+        .principale input:focus {
+            outline: none;
+            background-color: white;
+            color: #01189bff;
+            border-color: white;
+        }
+
+        .principale select {
+            width: 100%;
+            padding: 14px 15px;
+            border-radius: 10px;
+            border: none;
+            font-size: 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .principale select:focus {
+            outline: none;
+            background-color: white;
+            color: #01189bff;
+        }
+
+        .principale select option {
+            background-color: white;
+            color: #01189bff;
+        }
+        button {
+            width: 100%;
+            padding: 12px ;
+            border-radius: 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #01189bff;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+         button:hover {
+            background-color: #01189bff;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .connexion {
+            margin-top: 25px;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        .connexion a{
+            color: #27a5eeff;
+            text-decoration: none;
+            font-weight: bold;
+            font-style: italic;
+            transition: color 0.3s;
+        }
+
+        .connexion a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .input-group {
+            position: relative;
+            width: 100%;
+        }
+    
+        .input-group i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #01189bff;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+    <div class="principale">
+        <h1>Creer un compte UTS'STORE</h1>
+        <form method="POST" action="{% url 'inscription' %}">
+            {% csrf_token %}
+            <p>
+                <label>Nom</label>
+                <input type="text" name="last_name" required placeholder="Votre nom">
+            </p>
+            <p>
+                <label>Prénom</label>
+                <input type="text" name="first_name" required placeholder="Votre prenom">
+            </p>
+            <p>
+                <label>Nom d'utilisateur :</label>
+                <input type="text" name="username" required placeholder="Votre nom d'utilisateur">
+            </p>
+            <p>
+                <label>Email</label>
+                <input type="email" name="email" required placeholder="Votre email">
+            </p>
+            <p>
+                <label>Rôle à l'école</label>
+                <select name="role_ecole">
+                    <option value="etudiant">Etudiant</option>
+                    <option value="professeur">Professeur</option>
+                    <option value="personnel">Personnel</option>
+                    <option value="delegue">Délégué de promotion</option>
+                </select>
+            </p>
+            <p>
+                <div class="input-group">
+                    <label>Mot de passe</label>
+                    <input type="password" name="password" id="password_input" required placeholder="Votre mot de passe">
+                    <i class="fa-solid fa-eye" id="toggleMdp2" style="color: blue;"></i>
+                </div>
+            </p>
+            <button type="submit">S'inscrire</button>
+        </form>
+        <p class="connexion">Vous possedez déjà un compte ? <a href="{% url 'connexion' %}">Connectez-vous ici</a></p>
+    </div>
+    {% endblock content %}
+    <script>
+    function setupToggle(buttonId, inputId) {
+        const toggleBtn = document.getElementById(buttonId);
+        const inputField = document.getElementById(inputId);
+
+        if(toggleBtn && inputField) {
+            toggleBtn.addEventListener('click', function() {
+                const type = inputField.getAttribute('type') === 'password' ? 'text' : 'password';
+                inputField.setAttribute('type', type);
+                this.classList.toggle('fa-eye');
+                this.classList.toggle('fa-eye-slash');
+            });
+        }
+    }
+    // On utilise l'ID correct ici
+    setupToggle('toggleMdp2', 'password_input');
+</script>
+</body>
+</html>

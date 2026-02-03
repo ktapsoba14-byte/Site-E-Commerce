@@ -1,0 +1,823 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>UTS'STORE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #f2f2f2ff;
+            padding: 10px 30px;
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .client {
+            bottom: 50px;
+        }
+
+        .Acceuil a img{
+            width: 150px;
+            height: 150px;
+            border-radius: 100%;
+            border: 3px solid #01189bff;
+            transition: all 0.5s ease;
+        }
+
+        .Acceuil a img:hover{
+           border: 2px solid #9b0101ff;
+        }
+
+        .connexion  a{
+            text-decoration: none;
+            margin-top: 15px;
+        }
+
+        .connexion a:nth-child(1), .connexion a:nth-child(2) {
+            background-color: #01189bff;
+            padding: 15px 12px;
+            border-radius: 5px;
+            color: white;
+            transition: all 0.5s ease;
+        }
+        .connexion a:nth-child(1):hover, .connexion a:nth-child(2):hover {
+            background-color: white;
+            border: 2px solid #01189bff;
+            color: #01189bff;
+        }
+
+        .connexion a:nth-child(3), .connexion a:nth-child(4) {
+            background-color: white;
+            border: 2px solid #01189bff;
+            padding: 13px 10px;
+            border-radius: 5px;
+            color: #01189bff;
+            transition: all 0.5s ease;
+        }
+        .connexion a:nth-child(3):hover, .connexion a:nth-child(4):hover {
+            background-color: #01189bff;
+            color: white;
+        }
+
+        .presentation {
+            display: flex;
+            gap: 20px;
+            background-color: white;
+            padding:10px 15px;
+            border-radius: 15px;
+        }
+
+        .presentation span {
+           margin-top: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #01189bff;
+        }
+
+        .presentation span::before {
+            content: "👤";
+            margin-right: 8px;
+            font-size: 0.8rem;
+        }
+
+        .presentation a {
+            text-decoration: none;
+            color: #9b0101ff;
+            background-color: white;
+            border: 2px solid #9b0101ff;
+            padding: 10px 5px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            margin-left: 180px;
+        }
+
+        .presentation a:hover {
+            background-color: #9b0101ff;
+            color: white;
+        }
+
+        .connexion-client {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            gap: 10px;
+            background-color: #01189bff;
+            border-radius: 15px;
+            padding: 15px 10px;
+
+        }
+
+        .connexion-client a {
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #01189bff;
+            background-color: white;
+            border-radius: 15px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .connexion-client a:hover {
+            background-color: #01189bff;
+            color: white;
+        }
+
+        .container-produits {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 25px;
+        }
+
+        .produit {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            background: #f2f2f2ff;
+            border: .1rem solid rgba(0,0,0,.1);
+            border-radius: 15px;
+            padding: 15px 30px;
+            transition: ease all 0.5s;
+        }
+
+        .produit:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .produit-image {
+            position: relative;
+            height: 220px;
+            width: 220px;
+            color: white;
+            border: 1px solid #01189bff;
+        }
+
+        .produit-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .badge-solde {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            background-color: #9b0101ff;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .produit-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .produit-info h2 {
+            font-size: 1.5rem;
+            color: #01189bff;
+            margin-bottom: 10px;
+            margin-top: -30px;
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        .description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .prix-barre {
+            color: #9b0101ff;
+            font-size: 0.8em;
+        }
+
+        .pr {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .prix-actuel {
+            color: #01189bff;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .btn-voir {
+            display: block;
+            text-align: center;
+            background-color: #01189bff;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: auto;
+            transition: ease all 0.5s;
+        }
+
+        .btn-voir:hover {
+            background-color: white;
+            color: #01189bff;
+            border:1px solid #01189bff;
+        }
+
+        .stock {
+            color: #019b15ff;
+            font-weight: 600;
+        }
+
+        .epuise {
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 800;
+            font-style: italic;
+            padding: 10px 0 10px 0;
+            color: #9b0101ff;
+        }
+
+        .etoile ul i {
+            color: yellow;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .recherche {
+            display: flex;
+            justify-content: center;
+        }
+
+        .recherche input {
+            height: 50px;
+            width: 500px;
+            border-radius: 15px;
+            font-weight: bold;
+            text-align: center;
+            color: #01189bff;
+        }
+
+        .categorie-filter {
+            background-color: #01189bff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 0 0 15px 15px;
+            margin-bottom: 30px;
+        }
+
+        .categorie-grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #01189bff 0%, #000c4d 100%);
+            color: white;
+            padding: 80px 5%;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            opacity: 0.9;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .btn-dash {
+            display: inline-block;
+            background: #9b0101ff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            transition: ease all 0.5s;
+        }
+
+        .btn-dash:hover {
+            background-color: white;
+            color: #9b0101ff;
+            border: 1px solid #9b0101ff;
+        }
+
+        .reduction-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 60px 5%;
+            background-color: #fff;
+        }
+
+        .reduction, .fidelite {
+            padding: 40px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reduction {
+            background: linear-gradient(135deg, #01189b 0%, #000c4d 100%);
+            color: white;
+            box-shadow: 0 10px 20px rgba(1, 24, 155, 0.2);
+        }
+
+        .fidelite {
+            display: flex;
+            gap: 50px;
+            background: white;
+            color: #333;
+        }
+
+        .reduction h2, .fidelite h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .reduction p, .fidelite p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .fidelite strong {
+            color: #9b0101;
+        }
+
+        .uts {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            margin-top: 20px;
+        }
+
+        .uts h1 {
+            color: #01189b;
+            font-size: 2rem;
+            font-weight: 800;
+            border-bottom: 4px solid #9b0101;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        footer {
+            background-color: #01189bff;
+            color: white;
+            padding: 40px 20px 20px;
+            margin-top: 50px;
+            border-top: 5px solid #9b0101ff;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            color: white;
+            border-bottom: 2px solid #9b0101ff;
+            display: inline-block;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p, .footer-section li {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #d1d1d1;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #d1d1d1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            background: white;
+            color: #01189bff;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1);
+            background: #9b0101ff;
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        .cat-link.active {
+            background: #9b0101ff !important;
+            color: white !important;
+            transform: scale(1.05);
+        }
+
+        .produit {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            padding: 15px 20px;
+        }
+
+        .container-radio {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .radio {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .radio-item input[type="radio"] {
+            display: none;
+        }
+
+        .radio-item label {
+            display: flex;
+            flex-direction:  column;
+            align-items: center;
+            cursor: pointer;
+            border: 2px solid #01189bff;
+            border-radius: 10px;
+            padding: 10px;
+            background: white;
+            width: 110px;
+            transition: all 0.3s ease;
+        }
+
+        .radio-item label img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            margin-bottom: 5px;
+        }
+
+        .radio-item input[type="radio"]:checked + label {
+            border-color: #9b0101ff;
+            background-color: #f2f2f2ff;
+        }
+
+        .estore h1{
+            color: #01189bff;
+            font-size: 5em;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .estore p {
+            color: #9b0101ff;
+            font-size: 1.5em;
+            font-weight: 800;
+            text-align: center;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+
+        .etudiant {
+            text-align: center;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #9b0101ff;
+        }
+
+        .serv {
+            color: white;
+            font-style: italic;
+        }
+
+        @media screen and (max-width: 600px) {
+            header {
+                flex-direction: column;
+                padding: 20px 10px;
+                text-align: center;
+                gap: 15px;
+            }
+            .estore h1 {
+                font-size: 2.5em;
+            }
+            .Acceuil a img {
+                width: 100px;
+                height: 100px;
+            }
+            .client {
+                width: 100%;
+            }
+            .connexion, .connexion-client {
+                flex-direction: column;
+                width: 100%;
+                gap: 8px;
+            }
+            .connexion a, .connexion-client a {
+                width: 100%;
+                margin: 0 !important;
+                padding: 12px !important;
+                text-align: center;
+            }
+            .presentation {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
+            }
+            .presentation a {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+            }
+            .container-produits {
+                grid-template-columns: 1fr;
+                padding: 20px;
+                gap: 20px;
+            }
+            .produit {
+                width: 100%;
+                padding: 15px;
+            }
+            .produit-image {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1 / 1;
+            }
+            .recherche input {
+                width: 90%;
+            }
+
+            .container-radio {
+                gap: 10px;
+            }
+
+            .radio-item label {
+                width: 90px;
+                padding: 5px;
+            }
+            .fidelite {
+                flex-direction: column;
+                padding: 10px;
+                gap: 15px;
+            }
+            .reduction {
+                padding: 20px;
+            }
+            .hero {
+                padding: 40px 15px;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        @media screen and (min-width: 601px) and (max-width: 1024px) {
+            .container-produits {
+                grid-template-columns: 1fr 1fr;
+            }
+            .estore h1 {
+                font-size: 3.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <div class="Acceuil">
+        <a href="{% url 'index' %}?view_as_customer=1">
+            <img src="{% static 'images/' %}Logo.png" alt="Images de Dao" style="width: 150px;">
+        </a>
+    </div>
+    <div class="estore">
+        <h1>UTS'STORE</h1>
+    </div>
+    <div class="client">
+        {% if user.is_authenticated %}
+            <nav>
+                <div class="connexion-client">
+                    <a href="{% url 'panier' %}">🛒 Panier (0)</a>
+                    <a href="{% url 'payment' %}">💳 Payer</a>
+                    <a href="{% url 'profil' %}">👤 Profils</a>
+                    <a href="{% url 'historique_vente' %}">📜 Historique</a>
+                </div>
+            </nav>
+             <div class="presentation">
+                <span>Bienvenue: {{ user.username }}</span>
+                <a href="{% url 'deconnection' %}" class="deconnection">Deconnexion</a>
+            </div>
+        {% else %}
+            <div class="connexion">
+                <a href="{% url 'inscription' %}">S'inscrire</a>
+                <a href="{% url 'connexion' %}">Connexion</a>
+                <a href="{% url 'propos' %}">Apropos</a>
+                <a href="{% url 'contact' %}">Contact</a>
+            </div>
+        {% endif %}
+    </div>
+</header>
+<body>
+    <section class="hero">
+        <h1>L'élégance de l'étudiant burkinabè</h1>
+        <p>Découvrez notre sélection exclusive d'accessoires inspirés par la culture locale et conçus pour votre réussite.</p>
+        {% if user.est_membre or user.is_superuser %}
+            <a href="{% url 'Tableau_de_bord' %}" class="btn-dash">ACCÉDER AU DASHBOARD ADMIN</a>
+        {% endif %}
+    </section>
+    <section>
+        <div class="fidelite">
+            <div class="reduction">
+                <h2>Notre Programme de Fidélité</h2>
+                <p>Chaque achat vous rapproche d'une priviliège !</p>
+                <p>Devenez un client fidèle et obtenez 10% de reduction sur tout vos achat.</p>
+                <p>Les 10 plus gros acheteurs du mois reçoivent des articles exclusifs (T-shirts UTS, carnets personnalisés).</p>
+            </div>
+             <div class="reduction">
+                <h2>Économisez plus, achetez plus !</h2>
+                <p>Nous soutenons votre budget étudiant. Pour toute commande supérieure à 20 000 F CFA, une réduction automatique de 5% est appliquée à votre panier. C'est notre façon de vous remercier pour votre confiance.</p>
+            </div>
+        </div>
+        <div class="uts">
+            <h1>Avec UTS'STORE, Votre satisfaction est notre priorité.</h1>
+        </div>
+        <div class="etudiant">
+            <h2>Au service des étudiants</h2>
+        </div>
+    </section>
+    {% block content %}
+    
+    {% endblock %}
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="{% static 'images/' %}Logo.png" alt="Images de Dao" style="width: 150px; height: 150px; border-radius: 50%; ">
+                <p class="serv">Au service des etudiants</p>
+            </div>
+            <div class="footer-section">
+                <h3>UTS'STORE</h3>
+                <p>La boutique officielle des étudiants de l'UTS. Créée par des étudiants, pour des étudiants. Soutenons l'entrepreneuriat local !</p>
+                <div class="social-icons">
+                    <a href="#"><img src="{% static 'images/' %}facebook.png" alt="Images de Dao" style="width: 30px;"></a>
+                    <a href="#"><img src="{% static 'images/' %}twitter.png" alt="Images de Dao" style="width: 30px;"></a>
+                    <a href="#"><img src="{% static 'images/' %}whatsapp.png" alt="Images de Dao" style="width: 30px;"></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                {% if user.is_authenticated %}
+                 <ul class="footer-links">
+                    <li><a href="{% url 'panier' %}">Panier</a></li>
+                    <li><a href="{% url 'historique_vente' %}">Historique</a></li>
+                    <li><a href="{% url 'profil' %}">Profil</a></li>
+                </ul>
+            {% else %}
+                 <ul class="footer-links">
+                    <li><a href="{% url 'index' %}">Accueil</a></li>
+                    <li><a href="{% url 'propos' %}">À Propos</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            {% endif %}
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📍 UFR ST, Université Thomas Sankara</p>
+                <p>📞 (+226) 75 33 85 07</p>
+                <p>✉️ support@uts-estore.bf</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2025 UTS'STORE - Projet Académique (Dr KOALA) - Tous droits réservés.
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.querySelector('.recherche input');
+            if (searchInput) {
+                searchInput.addEventListener('keyup', function(e) {
+                    const term = e.target.value.toLowerCase();
+                    const cards = document.querySelectorAll('.produit');
+
+                    cards.forEach(card => {
+                        const title = card.querySelector('h2').textContent.toLowerCase();
+                        const desc = card.querySelector('.description').textContent.toLowerCase();
+                        if (title.includes(term) || desc.includes(term)) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            }
+
+            const logoutBtn = document.querySelector('.deconnection');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function(e) {
+                    if (!confirm('Voulez-vous vraiment vous déconnecter de UTS E\'STORE ?')) {
+                        e.preventDefault();
+                    }
+                });
+            }
+
+            const radios = document.querySelectorAll('input[name="categorie"]');
+            radios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const selectedCat = this.value;
+                    document.querySelectorAll('.produit').forEach(card => {
+                        if (selectedCat === "all" || card.getAttribute('data-category') === selectedCat) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+        });
+</script>
+</body>
+</html>

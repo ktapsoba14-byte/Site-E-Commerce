@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter un nouveau Client</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f2f2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .principale {
+            background-color: white;
+            color: #01189bff;
+            padding: 70px 30px;
+            width: 100%;
+            max-width: 450px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 800;
+            padding: 25px 0;
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            color: #9b0101ff;
+        }
+
+        .formulaire{
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+
+        .formulaire label {
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .formulaire input,
+        .formulaire select,
+        .formulaire textarea {
+            padding: 15px 0px;
+            width: 100%;
+            border: 1px solid #01189bff;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .formulaire input:focus {
+            outline: none;
+            border-color: #01189bff;
+            box-shadow: 0 0 0 3px rgba(1, 24, 155, 0.1);
+        }
+
+        button {
+            width: 100%;
+            background-color: #0eb950ff;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: white;
+            color: #0eb950ff;
+            border: 1px solid #0eb950ff;
+        }
+
+        .btn-back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #9b0101ff;
+            font-weight: 600;
+        }
+
+        .btn-back:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div class="principale">
+        <h1>Nouveau utilisateur</h1>
+        <form method="post" enctype="multipart/form-data"> 
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="formulaire">
+                <label>{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}
+                    <span>{{ field.errors }}</span>
+                    {% endif %}
+            </div>
+            {% endfor %}
+            <button type="submit">Enregistrer le client</button>
+        </form>
+        <a href="{% url 'clients' %}"class="btn-back">Annuler et retourner</a>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>UTS E'STORE || Détail</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                font-family: 'Segoe UI', Roboto, sans-serif;
+                box-sizing: border-box;
+            }
+            .detail-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            display: flex;
+            gap: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+        }
+
+        .detail-image {
+            flex: 1;
+        }
+
+        .detail-image img {
+            width: 100%;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .detail-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .product-titre {
+            font-size: 2rem;
+            color: #1a1a1a;
+            border-bottom: 2px solid #f2f2f2;
+            padding-bottom: 10px;
+        }
+
+        .product-prix {
+            font-size: 1.8rem;
+            color: #01189b;
+            font-weight: 800;
+        }
+
+        .product-description h3 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .product-description p {
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .in-stock {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .out-of-stock {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .ajouter {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+        }
+
+        .qty {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .qty input {
+            width: 70px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn-ajouter {
+            width: 100%;
+            background: #01189b;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-ajouter:hover {
+            background: #000c66;
+            transform: translateY(-2px);
+        }
+
+        .panier {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #01189b;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .panier:hover {
+            text-decoration: underline;
+        }
+
+        .retour {
+            text-align: right;
+            font-size: 0.95em;
+            font-style: italic;
+        }
+
+        .retour a {
+            text-decoration: none;
+            color: #01189b;
+            transform: ease all 0.5s;
+        }
+
+        .retour a:hover {
+            text-decoration: underline;
+            color: #9b0101ff;
+        }
+
+        .login-alert {
+            font-style: italic;
+            text-align: center;
+            color: #9b0101ff;
+        }
+        </style>
+    </head>
+    <body>
+
+        {% block content %}
+        <div class="detail-container">
+            <div class="detail-image">
+                {% if products.image %}
+                    <img src="{{ products.image.url }}" alt="{{ products.designation }}">
+                {% else %}
+                    <div class="no-image-detail">Image non disponible</div>
+                {% endif %}
+            </div>
+            <div class="detail-info">
+                <h1 class="product-titre">{{ products.designation }}</h1>
+                <p class="product-prix">{{ products.prix_vente_actuel }} F CFA</p>
+                <div class="product-description">
+                    <h3>Description</h3>
+                    <p>{{ products.description }}</p>
+                </div>
+                <div class="product-stock">
+                    <span class="stock-label">Disponibilité :</span>
+                    <span class="stock-value {% if products.quantite_stock > 0 %}in-stock{% else %}out-of-stock{% endif %}">
+                        {{ products.quantite_stock }} unités en stock
+                    </span>
+                </div>
+                {% if user.is_authenticated %}
+                    <div class="ajouter">
+                        <form action="{% url 'add-to-cart' products.slug %}" method="POST">
+                            {% csrf_token %}
+                            <div class="qty">
+                                <label for="quantite">Quantité :</label>
+                                <input type="number" name="quantite" id="quantite" value="1" min="1" max="{{ products.quantite_stock }}">
+                            </div>
+                            <button type="submit" class="btn-ajouter">🛒 Ajouter au panier</button>
+                        </form>
+                        <a href="{% url 'panier' %}" class="panier">Voir le panier</a>
+                    </div>
+                {% else %}
+                    <p class="login-alert">Connectez-vous pour commander ce produit.</p>
+                {% endif %}
+                <div class="retour">
+                    <a href="{% url 'index' %}?view_as_customer=1">Retour à la boutique</a>
+                </div>
+            </div>
+        </div>
+        {% endblock content %}
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            const logoutBtn = document.querySelector('.btn-ajouter');
+            const quantite = document.querySelector('input[name="quantite"]');
+            const produit = "{{ products.designation }}";
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function(e) {
+                    alert(produit +" ajoutés dans votre panier")
+                });
+            }
+        });
+        </script>
+    </body>
+</html>
